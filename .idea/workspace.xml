@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3953007b-bbce-4dcb-8624-6cd7e281aabb" name="Default" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$Test_frcnn_NIR_MR_FPPIv1.coverage" NAME="Test_frcnn_NIR_MR_FPPIv1 Coverage Results" MODIFIED="1600764977860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30Lambda1xOk32ADA_GRAD_A09More$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1591808572343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$Test_frcnn_NIR_MR_FPPI_dt_NightOwls.coverage" NAME="Test_frcnn_NIR_MR_FPPI_dt_NightOwls Coverage Results" MODIFIED="1601313062787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5IgnMotBic$roi_helpers_Ln.coverage" NAME="roi_helpers_Ln Coverage Results" MODIFIED="1597189856832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/keras_frcnn" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30Lambda2xOk02$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1563083110574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_4o15Dis30Lambda1xOk32ADA_GRAD_A09$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1591601456143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic$config.coverage" NAME="config Coverage Results" MODIFIED="1592292534488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/keras_frcnn" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5IgnMotBic$get_data_from_json.coverage" NAME="get_data_from_json Coverage Results" MODIFIED="1595176436625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$Anchor_k_means.coverage" NAME="Anchor_k-means Coverage Results" MODIFIED="1592963248430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/keras_frcnn" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1558095033404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$data_augment_new.coverage" NAME="data_augment_new Coverage Results" MODIFIED="1594289929963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/keras_frcnn" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30Lambda2xOk32ADA_GRAD$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1567990700421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHlog2Dis15LambdaNewMeanOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561267823683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$Evaluate_frcnn_NIR_MR_FPPI.coverage" NAME="Evaluate_frcnn_NIR_MR_FPPI Coverage Results" MODIFIED="1593502613678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$Visualize_RPN_Cls.coverage" NAME="Visualize_RPN_Cls Coverage Results" MODIFIED="1600601395013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/keras_frcnn" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_4o15Dis30Lambda1xOk32ADA_GRAD$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1591052859645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1592881461345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$Img_channel_mean.coverage" NAME="Img_channel_mean Coverage Results" MODIFIED="1592971789360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5XYWH_Dis25Lambda2xOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1562240021517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$train_frcnn_NIRV924.coverage" NAME="train_frcnn_NIRV924 Coverage Results" MODIFIED="1619396196415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1593585773237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingDis$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1559173437668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$Test_frcnn_NightOwls_MR_FPPIv1.coverage" NAME="Test_frcnn_NightOwls_MR_FPPIv1 Coverage Results" MODIFIED="1599460049793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$data_generators_new.coverage" NAME="data_generators_new Coverage Results" MODIFIED="1599649220585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/keras_frcnn" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5XYWH_Dis15Ok01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561389388193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5g$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1558109616524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5XYWH_Dis30Lambda2xOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1562377688285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30Lambda2xOk32$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1564286408182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5XYWH_Dis31_54Lambda2xOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1562297941723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$Evaluate_frcnn_NIR.coverage" NAME="Evaluate_frcnn_NIR Coverage Results" MODIFIED="1593423218168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHDisNew$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1559447168398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5ARWH_Dis15Ok01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561378550951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30Lambda1xOk32ADA_GRAD_A09MoreIgnMotBic$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1592263297459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHlog2Dis15Lambda2xNewMeanOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561278734055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHDis$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1559205820940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHDisNewMean$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1559961288924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5IgnMotBic$Test_frcnn_NightOwls_MR_FPPIv1.coverage" NAME="Test_frcnn_NightOwls_MR_FPPIv1 Coverage Results" MODIFIED="1594658217223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5IgnMotBic$train_frcnn_NightOwlsV2.coverage" NAME="train_frcnn_NightOwlsV2 Coverage Results" MODIFIED="1597807714471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30Lambda1xOk32ADA_GRAD$Img_channel_mean.coverage" NAME="Img_channel_mean Coverage Results" MODIFIED="1589934027382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30Lambda1xOk32ADA_GRAD_A09$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1591693792878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_64_2o5$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1558056578973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5log2Dis15NewMeanOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561265411826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$train_frcnn_NIRV2.coverage" NAME="train_frcnn_NIRV2 Coverage Results" MODIFIED="1600655817735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30Lambda2xOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1562401537504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHDisNewMeanOk$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1560010129272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5XYWH_Dis15Lambda2xOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561394056542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30Lambda1xOk32ADA_GRAD$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1589934712116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$get_data_from_json.coverage" NAME="get_data_from_json Coverage Results" MODIFIED="1603815548537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$load_training_data_demo20200620.coverage" NAME="load_training_data_demo20200620 Coverage Results" MODIFIED="1592929128875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/keras_frcnn" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$train_frcnn_NightOwlsV1.coverage" NAME="train_frcnn_NightOwlsV1 Coverage Results" MODIFIED="1593917341602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$Test_frcnn_NIR_MR_FPPIv2.coverage" NAME="Test_frcnn_NIR_MR_FPPIv2 Coverage Results" MODIFIED="1619264945070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$Test_frcnn_NIR_MR_FPPIv2_realtime.coverage" NAME="Test_frcnn_NIR_MR_FPPIv2_realtime Coverage Results" MODIFIED="1602200834815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$convert_gt_frcnn.coverage" NAME="convert_gt_frcnn Coverage Results" MODIFIED="1593423155281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$train_frcnn_NIRV1031.coverage" NAME="train_frcnn_NIRV1031 Coverage Results" MODIFIED="1604150556698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHDis20NewMeanOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561052044775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHDis20NewMeanOk$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1560961717103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHDis15NewMeanOk03$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561177739309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_4o15Dis30Lambda1xOk32ADA_GRAD$test.coverage" NAME="test Coverage Results" MODIFIED="1590163035644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/keras_frcnn" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$Load_train_data_NightOwls.coverage" NAME="Load_train_data_NightOwls Coverage Results" MODIFIED="1593386924284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/keras_frcnn" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHlog2Dis15NewMeanOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561267414223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHDis15NewMeanOk02$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561137940884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$train_frcnn_NightOwlsV2.coverage" NAME="train_frcnn_NightOwlsV2 Coverage Results" MODIFIED="1594475970906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$Test_frcnn_NightOwls_MR_FPPIv1.coverage" NAME="Test_frcnn_NightOwls_MR_FPPIv1 Coverage Results" MODIFIED="1593852527697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5RoIpoolingARWHDis15NewMeanOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561120839488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis15NewMeanOk01$train_frcnn_NIR.coverage" NAME="train_frcnn_NIR Coverage Results" MODIFIED="1561250874726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5MoreIgnMotBic_NightOwls$Load_train_data_NightOwls__1_.coverage" NAME="Load_train_data_NightOwls (1) Coverage Results" MODIFIED="1593422793784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR$train_frcnn_NightOwlsV2.coverage" NAME="train_frcnn_NightOwlsV2 Coverage Results" MODIFIED="1599714015538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>1020</find>
+      <find>102</find>
+      <find>0280</find>
+      <find>model_loss</find>
+      <find>Loss_NightOwls</find>
+      <find>0.1</find>
+      <find>287</find>
+      <find>dataset</find>
+      <find>Detect image</find>
+      <find>009544545493466606</find>
+      <find>non_max_suppression_fast</find>
+      <find>T_bottom_negtive</find>
+      <find>times_increase</find>
+      <find>times_increase_5</find>
+      <find>times_increase_10</find>
+      <find>47m</find>
+      <find>calc_iou</find>
+      <find>cfg</find>
+      <find>C</find>
+      <find>times_less_than_2</find>
+      <find>times_greater_than_5</find>
+      <find>43m</find>
+      <find>classifier_min_overlap</find>
+      <find>Loss_NIR</find>
+      <find>T_NIR</find>
+      <find>losses_fn</find>
+      <find>index_image</find>
+      <find>39972</find>
+      <find>40405</find>
+      <find>learning_rate</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>im_rows</replace>
+      <replace>position_RoI300_rpn_all_imgs</replace>
+      <replace>position_RoI300</replace>
+      <replace>position</replace>
+      <replace>width=line_width</replace>
+      <replace>RPN</replace>
+      <replace>BBdt300_rpn</replace>
+      <replace>show_imgs_directory</replace>
+      <replace>position_img_rpn</replace>
+      <replace>mode</replace>
+      <replace>Data201807</replace>
+      <replace>Dis_threshold</replace>
+      <replace>K.image_data_format() == 'channels_last'</replace>
+      <replace>image_data_format</replace>
+      <replace>K.image_data_format() == 'channels_first'</replace>
+      <replace>BB_predicted</replace>
+      <replace>Visual</replace>
+      <replace>annos_file</replace>
+      <replace>isuaOk_NIR_T</replace>
+      <replace>img</replace>
+      <replace>H:\Datasets\NIR_Ped2021\annos_Datasets2018_2021AllDay</replace>
+      <replace>model_loss_NIR</replace>
+      <replace>Loss</replace>
+      <replace>times_increase_5</replace>
+      <replace>times_increase_10</replace>
+      <replace>times_less_than_2</replace>
+      <replace>times_greater_than_5</replace>
+      <replace>43m</replace>
+      <replace>times_less_than_3</replace>
+      <replace>times_greater_than_4</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/keras_frcnn/Resnet50NIRRGB64_1024_128_2o5_XYWH.py" />
+        <option value="$PROJECT_DIR$/Evaluate_frcnn_NIR_Merge_Lidar.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/test.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/simple_parser_new.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/load_training_data_demo20200620.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/coco.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/Resnet50NIRRGB64_1024_128_2o5stride8.py" />
+        <option value="$PROJECT_DIR$/Anchor_k-means.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/Anchor_k-means.py" />
+        <option value="$PROJECT_DIR$/Img_channel_mean.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/Load_train_data_NightOwls.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/ImgResult.py" />
+        <option value="$PROJECT_DIR$/Load_train_data_NightOwls.py" />
+        <option value="$PROJECT_DIR$/convert_gt_frcnn.py" />
+        <option value="$PROJECT_DIR$/Evaluate_frcnn_NIR.py" />
+        <option value="$PROJECT_DIR$/train_frcnn_NIR.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/Loss_treat.py" />
+        <option value="$PROJECT_DIR$/Evaluate_frcnn_NIR_MR_FPPI.py" />
+        <option value="$PROJECT_DIR$/Test_frcnn_NightOwls_MR_FPPI.py" />
+        <option value="$PROJECT_DIR$/get_data.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/Resnet50NIRRGB64_1024_128_2o5.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/Resnet50NIR_2o5.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/Resnet50NIR_2o5stride8.py" />
+        <option value="$PROJECT_DIR$/train_frcnn_NightOwlsV1.py" />
+        <option value="$PROJECT_DIR$/train_frcnn_NightOwls.py" />
+        <option value="$PROJECT_DIR$/get_data_from_2json.py" />
+        <option value="$PROJECT_DIR$/Merge2json.py" />
+        <option value="$PROJECT_DIR$/sel_samples.py" />
+        <option value="$PROJECT_DIR$/Test_frcnn_NightOwls_MR_FPPIv1.py" />
+        <option value="$PROJECT_DIR$/train_frcnn_NightOwlsV2.py" />
+        <option value="$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPIv1.py" />
+        <option value="$PROJECT_DIR$/model_classifier_predict.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/data_augment_new.py" />
+        <option value="$PROJECT_DIR$/select_samples.py" />
+        <option value="$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPI_dt_NightOwls.py" />
+        <option value="$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPIv2_realtime.py" />
+        <option value="$PROJECT_DIR$/write2excel.py" />
+        <option value="$PROJECT_DIR$/train_frcnn_NIRV2.py" />
+        <option value="$PROJECT_DIR$/train_frcnn_NIRV1031.py" />
+        <option value="$PROJECT_DIR$/../../zhengw/实验/code/train_op.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/fixed_batch_normalization.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/roi_pooling_conv_distance.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/Visualize_RPN_Cls.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/Resnet50RGB64_1024_128_2o5stride8.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/data_generators_new.py" />
+        <option value="$PROJECT_DIR$/get_data_from_json.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/losses_distance.py" />
+        <option value="$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPIv2.py" />
+        <option value="$PROJECT_DIR$/train_frcnn_NIRV924.py" />
+        <option value="$PROJECT_DIR$/keras_frcnn/config.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1618" />
+    <option name="height" value="868" />
+  </component>
+  <component name="ProjectId" id="1sUDlB2o4e06WO5RrQazTuZw9e6" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FasterRCNNResnet50RGB64_1024_128_2o5A5_2021" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FasterRCNNResnet50RGB64_1024_128_2o5A5_2021" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Faster_RCNN\FasterRCNNResnet50RGB64_1024_128_2o5A5_NIR2021" />
+      <recent name="E:\Faster_RCNN\FasterRCNNResnet50RGB64_1024_128_2o5A5_NIR2021\detection_result_Cross_NightOwlsT48L027eOk_Train_val" />
+      <recent name="G:\Faster_RCNN\FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR" />
+      <recent name="E:\Daixb\FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR" />
+      <recent name="E:\Daixb\FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR\keras_frcnn" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Faster_RCNN\FasterRCNNResnet50RGB64_1024_128_2o5Dis30A5_NIR" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.train_frcnn_NIRV924">
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="FasterRCNNResnet50RGB64_1024_64_2o5" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="FasterRCNNResnet50RGB64_1024_64_2o5" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Resnet50RGB64_1024_128_2o5stride8" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FasterRCNNResnet50RGB64_1024_64_2o5" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/keras_frcnn" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/keras_frcnn/Resnet50RGB64_1024_128_2o5stride8.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_frcnn_NIR_MR_FPPIv2_realtime2021" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
+      <module name="FasterRCNNResnet50RGB64_1024_64_2o5" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPIv2_realtime2021.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="get_data_from_json" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FasterRCNNResnet50RGB64_1024_64_2o5" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/get_data_from_json.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testgpu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FasterRCNNResnet50RGB64_1024_64_2o5" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testgpu.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train_frcnn_NIRV924" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+      <module name="FasterRCNNResnet50RGB64_1024_64_2o5" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_frcnn_NIRV924.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="FasterRCNNResnet50RGB64_1024_64_2o5" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.Resnet50RGB64_1024_128_2o5stride8" />
+      <item itemvalue="Python.Test_frcnn_NIR_MR_FPPIv2_realtime2021" />
+      <item itemvalue="Python.get_data_from_json" />
+      <item itemvalue="Python.testgpu" />
+      <item itemvalue="Python.train_frcnn_NIRV924" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.train_frcnn_NIRV924" />
+        <item itemvalue="Python.Resnet50RGB64_1024_128_2o5stride8" />
+        <item itemvalue="Python.testgpu" />
+        <item itemvalue="Python.get_data_from_json" />
+        <item itemvalue="Python.Test_frcnn_NIR_MR_FPPIv2_realtime2021" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3953007b-bbce-4dcb-8624-6cd7e281aabb" name="Default" comment="" />
+      <created>1558051927241</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558051927241</updated>
+      <workItem from="1620918424394" duration="5211000" />
+      <workItem from="1621520528359" duration="223415000" />
+      <workItem from="1622501964710" duration="689000" />
+      <workItem from="1622502794218" duration="672000" />
+      <workItem from="1622505934833" duration="2018000" />
+      <workItem from="1622520033027" duration="481000" />
+      <workItem from="1622520702546" duration="11000" />
+      <workItem from="1622527935159" duration="4883000" />
+      <workItem from="1622561886237" duration="6278000" />
+      <workItem from="1623205565309" duration="1050000" />
+      <workItem from="1623452651573" duration="6835000" />
+      <workItem from="1623831041500" duration="19093000" />
+      <workItem from="1626091306244" duration="11120000" />
+      <workItem from="1628060759784" duration="22993000" />
+      <workItem from="1628162275082" duration="1938000" />
+      <workItem from="1628173466991" duration="3528000" />
+      <workItem from="1628201476036" duration="10153000" />
+      <workItem from="1628239750703" duration="2000" />
+      <workItem from="1628239824742" duration="17471000" />
+      <workItem from="1628308145361" duration="30350000" />
+      <workItem from="1628407782189" duration="19332000" />
+      <workItem from="1628474941957" duration="2515000" />
+      <workItem from="1628486399214" duration="5286000" />
+      <workItem from="1628499795565" duration="36383000" />
+      <workItem from="1628597401754" duration="17270000" />
+      <workItem from="1628690865391" duration="4974000" />
+      <workItem from="1628734343344" duration="74310000" />
+      <workItem from="1629304162081" duration="14647000" />
+      <workItem from="1629431561239" duration="7000" />
+      <workItem from="1650369627380" duration="712000" />
+      <workItem from="1650373686651" duration="1143000" />
+      <workItem from="1668667005950" duration="34000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1618" height="868" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21198453" sideWeight="0.496208" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40086675" sideWeight="0.17110874" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15991472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34777898" sideWeight="0.8288913" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.107603095" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1881663" sideWeight="0.503792" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0734375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40086675" sideWeight="0.17110874" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3261105" sideWeight="0.8288913" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22974414" sideWeight="0.496208" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15991472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1119403" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1881663" sideWeight="0.503792" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.075159915" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers.py</url>
+          <line>92</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers.py</url>
+          <line>95</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_pooling_conv_distance.py</url>
+          <line>117</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_pooling_conv_distance.py</url>
+          <line>122</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_pooling_conv_distance.py</url>
+          <line>115</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_pooling_conv_distance_Resnet_ARWH.py</url>
+          <line>137</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_pooling_conv_distance_Resnet_ARWH.py</url>
+          <line>118</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_pooling_conv_distance_Resnet_ARWH.py</url>
+          <line>127</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/losses_distance.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/losses_distance.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_log2.py</url>
+          <line>87</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_log2.py</url>
+          <line>90</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_log2.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_log2.py</url>
+          <line>106</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/simple_parser_new.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/simple_parser_new.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/simple_parser_new.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/losses_distance.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/Resnet50NIRRGB64_1024_128_2o5_ARWH.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_pooling_conv_distance_Resnet_XYWH.py</url>
+          <line>116</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_pooling_conv_distance_Resnet_XYWH.py</url>
+          <line>133</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln.py</url>
+          <line>52</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln.py</url>
+          <line>53</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln.py</url>
+          <line>163</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln.py</url>
+          <line>155</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln.py</url>
+          <line>160</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/data_generators_new.py</url>
+          <line>619</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Evaluate_frcnn_NIR_Merge_Lidar.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/data_generators_new.py</url>
+          <line>104</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/data_generators_new.py</url>
+          <line>143</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/data_augment_new.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln.py</url>
+          <line>170</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln.py</url>
+          <line>169</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/data_generators_new.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/data_generators_new.py</url>
+          <line>241</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/data_generators_new.py</url>
+          <line>240</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/data_augment_new.py</url>
+          <line>95</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/data_generators_new.py</url>
+          <line>500</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train_frcnn_NIRV2.py</url>
+          <line>296</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train_frcnn_NIRV2.py</url>
+          <line>445</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPIv2.py</url>
+          <line>432</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln.py</url>
+          <line>418</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/config.py</url>
+          <line>141</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/Visualize_RPN_Cls.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/keras_frcnn/data_generators_new.py</url>
+          <line>389</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPIv2_realtime2021.py</url>
+          <line>261</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train_frcnn_NIRV924.py</url>
+          <line>289</line>
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Load_train_data_NightOwls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2522">
+          <caret line="155" column="27" lean-forward="false" selection-start-line="155" selection-start-column="17" selection-end-line="155" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/Resnet50NIRRGB64_1024_128_2o5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="334" column="65" lean-forward="false" selection-start-line="334" selection-start-column="55" selection-end-line="334" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/data_generators0.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="306" column="92" lean-forward="true" selection-start-line="306" selection-start-column="92" selection-end-line="306" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/Resnet50NIRRGB64_1024_128_2o5stride8.py" />
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/Loss_treat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/Load_train_data_NightOwls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/data_generators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="232" column="28" lean-forward="true" selection-start-line="232" selection-start-column="28" selection-end-line="232" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_frcnn_NightOwls.py" />
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/simple_parser_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="75" column="47" lean-forward="false" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="47" />
+          <folding>
+            <element signature="e#33#238#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/get_data_from_2json.py" />
+    <entry file="file://$PROJECT_DIR$/../Data_Pre_PostProcessing/Merge2json.py" />
+    <entry file="file://$PROJECT_DIR$/sel_samples.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Miniconda3/envs/Tf_gpuTitanRTX_keras216/Lib/site-packages/keras/engine/training.py" />
+    <entry file="file://$PROJECT_DIR$/Test_frcnn_NightOwls_MR_FPPIv1.py" />
+    <entry file="file://$PROJECT_DIR$/train_frcnn_NightOwlsV2.py" />
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/Visualize_RPN_Cls20200912.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/Visualize_RPN_Cls20200924.py" />
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln20200924.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1274">
+          <caret line="309" column="4" lean-forward="false" selection-start-line="309" selection-start-column="4" selection-end-line="309" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln20200910.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-650">
+          <caret line="258" column="4" lean-forward="false" selection-start-line="258" selection-start-column="4" selection-end-line="258" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_classifier_predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="38" column="67" lean-forward="false" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/roi_helpers0.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="156" column="4" lean-forward="false" selection-start-line="156" selection-start-column="4" selection-end-line="156" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_frcnn_NIR_dt_NightOwls.py" />
+    <entry file="file://$PROJECT_DIR$/select_samples.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="56" column="51" lean-forward="false" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPIv1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3162">
+          <caret line="310" column="53" lean-forward="false" selection-start-line="310" selection-start-column="53" selection-end-line="310" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1418">
+          <caret line="239" column="33" lean-forward="true" selection-start-line="239" selection-start-column="33" selection-end-line="239" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPI_dt_NightOwls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="813">
+          <caret line="425" column="25" lean-forward="false" selection-start-line="425" selection-start-column="25" selection-end-line="425" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPIv2_realtime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_frcnn_NIRV2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="466" column="28" lean-forward="false" selection-start-line="466" selection-start-column="17" selection-end-line="466" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#1498#1591#0" expanded="true" />
+            <element signature="e#13133#13230#0" expanded="false" />
+            <element signature="e#28552#28890#1" expanded="false" />
+            <element signature="e#28896#30153#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/write2excel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1375">
+          <caret line="57" column="68" lean-forward="false" selection-start-line="57" selection-start-column="68" selection-end-line="57" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_frcnn_NIRV1031.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="493" column="69" lean-forward="true" selection-start-line="493" selection-start-column="69" selection-end-line="493" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../zhengw/实验/code/pre_work.py" />
+    <entry file="file://$PROJECT_DIR$/../../zhengw/实验/code/train_op.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Miniconda3/envs/Tf_gpuTitanRTX_keras216/Lib/site-packages/tensorflow/contrib/receptive_field/python/util/receptive_field.py" />
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/test_tensorflow-gpu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_frcnn_NightOwls (2).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="204" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_frcnn_NIR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3375">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/fixed_batch_normalization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="49" column="49" lean-forward="false" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/roi_pooling_conv_distance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_frcnn_NIRV1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="365" column="100" lean-forward="false" selection-start-line="365" selection-start-column="82" selection-end-line="365" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/FixedBatchNormalization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/Visualize_RPN_Cls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="460" column="43" lean-forward="false" selection-start-line="460" selection-start-column="43" selection-end-line="460" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#1217#4993#0" expanded="false" />
+            <element signature="e#5053#11257#0" expanded="false" />
+            <element signature="e#10327#10368#0" expanded="false" />
+            <element signature="e#11321#16779#0" expanded="false" />
+            <element signature="e#12460#12544#0" expanded="false" />
+            <element signature="e#16887#21364#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/Resnet50RGB64_1024_128_2o5stride8.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="813">
+          <caret line="232" column="67" lean-forward="false" selection-start-line="232" selection-start-column="67" selection-end-line="232" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/data_generators_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10250">
+          <caret line="463" column="48" lean-forward="false" selection-start-line="463" selection-start-column="48" selection-end-line="463" selection-end-column="48" />
+          <folding>
+            <element signature="e#51#89#0" expanded="true" />
+            <element signature="e#568#723#0" expanded="false" />
+            <element signature="e#765#906#0" expanded="false" />
+            <element signature="e#962#1216#0" expanded="false" />
+            <element signature="e#1295#1577#0" expanded="false" />
+            <element signature="e#1661#3375#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/get_data_from_json.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/data_augment_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/roi_helpers_Ln.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2750">
+          <caret line="114" column="47" lean-forward="false" selection-start-line="114" selection-start-column="25" selection-end-line="114" selection-end-column="47" />
+          <folding>
+            <element signature="e#16989#17753#0" expanded="false" />
+            <element signature="e#17878#19296#0" expanded="false" />
+            <element signature="e#19434#22085#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/losses_distance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="86" column="58" lean-forward="false" selection-start-line="86" selection-start-column="58" selection-end-line="86" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../zhengw/depth_pre/code/pre_moni.py" />
+    <entry file="file://$PROJECT_DIR$/Test_frcnn_NIR_MR_FPPIv2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="552" column="30" lean-forward="false" selection-start-line="552" selection-start-column="30" selection-end-line="552" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#4150#4829#0" expanded="false" />
+            <element signature="e#4904#5351#0" expanded="false" />
+            <element signature="e#5392#5721#0" expanded="false" />
+            <element signature="e#6122#7289#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keras_frcnn/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="89" column="50" lean-forward="false" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
+          <folding>
+            <element signature="e#32#62#0" expanded="true" />
+            <element signature="e#5988#6040#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_frcnn_NIRV924.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="650" column="0" lean-forward="false" selection-start-line="650" selection-start-column="0" selection-end-line="653" selection-end-column="50" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#1498#1591#0" expanded="true" />
+            <element signature="e#13986#14171#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
