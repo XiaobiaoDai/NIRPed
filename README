@@ -1,5 +1,6 @@
 Download
 For being compatible with the existing framework, NIRPed's annotations are provided in the MS-COCO format (JSON).
+Please use Google Chrome or Microsoft Edge to download the NIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED
 
 Data of NIRPed
 PNG/JSON (Python)
