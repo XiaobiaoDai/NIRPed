@@ -1,5 +1,5 @@
 from keras import backend as K
-from keras.metrics  import categorical_crossentropy
+from keras.metrics import categorical_crossentropy
 
 if K.image_data_format() == 'channels_last':
 	import tensorflow as tf
@@ -44,7 +44,6 @@ def rpn_loss_cls(num_anchors): #num_anchors=3*3=9
 		# 后一个(3*3)表示锚框与标记框的交并比(即分类：1表示正锚框，0表示负锚框/背景)
 		#y_true=Y[1]=np.copy(y_rpn_cls)=[Samples=1,rows=32,cols=40,(3*3)+(3*3)=18]
 		#y_pred=x_class .shape=(Samples=1,rows=32,cols=40, filters=num_anchors=9)
-		# TypeError: Input 'y' of 'Sub' Op has type float32 that does not match type int32 of argument 'x'.
 		y_true1 = K.cast(y_true, 'float32')
 		if K.image_data_format() == 'channels_last':
 			return lambda_rpn_class * K.sum(y_true1[:, :, :, :num_anchors] * K.binary_crossentropy(y_pred[:, :, :, :], y_true1[:, :, :, num_anchors:])) / K.sum(epsilon + y_true1[:, :, :, :num_anchors])
@@ -63,7 +62,6 @@ def class_loss_regr(num_classes):
 		#y_true=Y[1]=np.copy(y_rpn_regr)=[1,32,40,9*(4+1)+9*(4+1)=90]
 		#y_pred=x_class .shape=(Samples=1, 32, 40, filters=num_anchors=9)
 		num5_regr = 5  #锚框与标记框的回归参数(tx, ty, tw, th, td)共5个
-		# TypeError: Input 'y' of 'Sub' Op has type float32 that does not match type int32 of argument 'x'.
 		y_true1 = K.cast(y_true, 'float32')
 		x = y_true1[:, :, num5_regr*num_classes:] - y_pred
 		x_abs = K.abs(x)
@@ -80,7 +78,6 @@ def class_loss_dis(num_classes):
 		#y_true=Y[1]=np.copy(y_rpn_regr)=[1,32,40,9*(4+1)+9*(4+1)=90]
 		#y_pred=x_class .shape=(Samples=1, 32, 40, filters=num_anchors=9)
 		num5_regr = 5  #锚框与标记框的回归参数(tx, ty, tw, th, td)共5个
-		# TypeError: Input 'y' of 'Sub' Op has type float32 that does not match type int32 of argument 'x'.
 		y_true1 = K.cast(y_true, 'float32')
 		x = y_true1[:, :, num5_regr*num_classes:] - y_pred
 		x_abs = K.abs(x)

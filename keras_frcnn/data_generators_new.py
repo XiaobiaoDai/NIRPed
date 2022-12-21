@@ -281,7 +281,7 @@ def calc_rpn(C, img_data, width, height, resized_width, resized_height, img_leng
 
 	# TODO：取出采样前的样本的IoU
 	sample_locs = np.where(y_is_box_valid[0, :, :, :] == 1)  # 找出所有负锚框(锚框里面是负样本)在特征图上的位置及锚框索引
-	# pdb.set_trace()
+
 	IoUs_RPN_original = []
 	for index in range(len(sample_locs[0])):
 		IoUs_RPN_original.append(IoU_anchors[sample_locs[0][index], sample_locs[1][index], sample_locs[2][index]])
@@ -289,7 +289,6 @@ def calc_rpn(C, img_data, width, height, resized_width, resized_height, img_leng
 
 	pos_locs = np.where(np.logical_and(y_rpn_overlap[0, :, :, :] == 1, y_is_box_valid[0, :, :, :] == 1))#找出所有正锚框(锚框里面是正样本)在特征图上的位置及锚框索引
 	neg_locs = np.where(np.logical_and(y_rpn_overlap[0, :, :, :] == 0, y_is_box_valid[0, :, :, :] == 1))#找出所有负锚框(锚框里面是负样本)在特征图上的位置及锚框索引
-	#pos_locs=(array([0, 0, 0, 1, 1, 1, 1, 1], dtype=int64), array([16, 16, 16, 15, 16, 16, 16, 17], dtype=int64), array([40, 47, 54, 43, 40, 43, 44, 43], dtype=int64))
 
 	num_pos = len(pos_locs[0])#计算正锚框(锚框里面是正样本)个数num_pos=8
 	num_neg = len(neg_locs[0])#计算正锚框(锚框里面是正样本)个数num_neg=7535
@@ -300,8 +299,6 @@ def calc_rpn(C, img_data, width, height, resized_width, resized_height, img_leng
 	# regions. We also limit it to 256 regions.我们还将正负总锚框数限制在256个。
 	#接下来通过numpy大法进行了一系列操作，对pos和neg的anchor进行了定位。
 	num_regions = C.batch_size_rpn #总RoI数 ##########################################################Pause20181108
-	#num_regions = 32 #总RoI数 ##Exception: 'a' cannot be empty unless no samples are taken in image:
-	# D:\Datasets\Samples_NIR20190326\Data20190326192757_114035.png#Pause20181108
 
 	# TODO：按样本交并比大小采样***按样本交并比大小采样***按样本交并比大小采样***按样本交并比大小采样***
 	IoUs_positive = []

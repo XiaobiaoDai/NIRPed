@@ -94,8 +94,8 @@ def calc_iou(RoIs, img_data, C, class_mapping): #RoIs=[300个优选ROI]
             elif best_iou >= C.classifier_max_overlap: #C.classifier_max_overlap=0.5<= best_iou,作为正样本处理
                 cls_name = bboxes[best_bbox]['class'] #当前优选预测框的类别设为GT标记框的类别。
                 if cls_name != 'bg':  # 如果当前类不等于背景'bg'  #if gta_feature_map[best_bbox, 4] != 0:
-                    td = -np.log(gta_feature_map[best_bbox, 4]/C.Dis0) #GT标记的距离回归系数td。
-                    #td = -math.log(gta_feature_map[best_bbox, 4] / C.Dis0, 2)
+                    td = -np.log(gta_feature_map[best_bbox, 4]/C.Dis_mean) #GT标记的距离回归系数td。
+                    #td = -math.log(gta_feature_map[best_bbox, 4] / C.Dis_mean, 2)
                     cx_gta = (gta_feature_map[best_bbox, 0] + gta_feature_map[best_bbox, 1]) / 2.0 #计算与当前优选锚 框相交最好的GT标记框的水平中心点
                     cy_gta = (gta_feature_map[best_bbox, 2] + gta_feature_map[best_bbox, 3]) / 2.0 #计算与当前优选锚框相交最好的GT标记框的垂直中心点
                     #对每个region遍历所有的bbox，找出重合度最高的。如果best_iou小于min_overlap，则作为副样本，大于max_overlap,则作为正样本。

@@ -7,7 +7,6 @@ def augment(img_data, config, augment=True):
 # img_data=img_data_aug={'filepath': 'H:\\Daixb\\Experimetation\\Experiment_Road\\Near_Infrared20180320\\Calibration\\2018-03-20_19_01_55m.bmp',
 #  'width': 1280, 'height': 1024, 'bboxes': [{'class': 'Ped', 'x1': 769, 'x2': 865, 'y1': 416, 'y2': 730, 'Dis': 55}], 'imageset': 'trainval'}
 	assert 'filepath' in img_data #assert的语法格式：assert expression 它的等价语句为：
-	#if not expression:   ——>raise AssertionError,确保img_data中的数据是完整无缺的
 	assert 'bboxes' in img_data
 	assert 'width' in img_data
 	assert 'height' in img_data
@@ -24,7 +23,7 @@ def augment(img_data, config, augment=True):
 	except:
 		pdb.set_trace()  	#I:\Datasets\VLP16_NIR2_2020CS\Data20200624201N850F12\Data20200624201642_833234N850F12.png
 	img = cv2.resize(img, (2*config.im_cols, 2*config.im_rows), interpolation=cv2.INTER_CUBIC) #img.shape=(512, 1280, 3)
-	#pdb.set_trace()
+
 	for bbox in img_data_aug['bboxes']:  # 对img_data_aug的边界框坐标进行相应处理，对img_data_aug['bboxes']进行直接修改????
 		x1 = float(bbox['x1'])/cols0
 		x2 = float(bbox['x2'])/cols0
@@ -142,14 +141,7 @@ def augment(img_data, config, augment=True):
 					bbox['y2'] = x2
 				elif angle == 0:
 					pass
-	# for bbox in img_data_aug['bboxes']:  # 对img_data_aug的边界框坐标进行相应处理
-	# 	if bbox['class'] == 'bg':
-	# 		cv2.rectangle(img,(bbox['x1'],bbox['y1']),(bbox['x2'],bbox['y2']),(0, 255, 0), 2)
-	# 	else:
-	# 		cv2.rectangle(img,(bbox['x1'],bbox['y1']),(bbox['x2'],bbox['y2']),(0, 0, 255), 2)
-	# cv2.imshow(img_data_aug['filepath'], img)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
+
 	img_data_aug['width'] = img.shape[1]#增强后的图片宽度相应改变
 	img_data_aug['height'] = img.shape[0]#增强后的图片高度相应改变
 	return img_data_aug, img #无论怎么样，只有一种增强图片及RoI信息数据和1024*1280像素的图片数据
