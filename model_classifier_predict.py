@@ -61,7 +61,7 @@ def model_classifier_predict(model_classifier, X_reImg, BBdt300_rpn, roi_helpers
                 ty /= cfg.classifier_regr_std[1]
                 tw /= cfg.classifier_regr_std[2]
                 th /= cfg.classifier_regr_std[3]
-                Dis_cls = round(cfg.Dis0*np.exp(-td), 2)
+                Dis_cls = round(cfg.Dis_mean*np.exp(-td), 2)
 
                 x, y, w, h = roi_helpers.apply_regr(x, y, w, h, tx, ty, tw, th)
                 # 执行坐标回归计算：返回修正后的特征图上RoI左上角点坐标及宽度圆整值(像素点)

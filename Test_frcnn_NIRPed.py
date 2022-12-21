@@ -5,20 +5,16 @@ import tensorflow as tf
 import numpy as np
 import pickle
 import time, datetime
-from keras_frcnn import config
 from keras import backend as K
 from keras.layers import Input
 from keras.models import Model
 import keras_frcnn.roi_helpers_Ln as roi_helpers
 from keras_frcnn import Resnet50RGB64_1024_128_2o5stride8 as nn  # 从keras_frcnn模块包中的resnet_NIR.py文件中定义的所有方法(或函数)导入为nn
 import argparse  # argparse模块可以轻松编写用户友好的命令行界面。 程序定义了它需要的参数，argparse将弄清楚如何解析sys.argv中的参数。
-# 当用户给程序提供无效参数时，argparse模块还会自动生成帮助和使用消息并发出错误。
-#import keras_frcnn.resnet_NIR2o32_64g0 as nn
-#from keras_frcnn.visualize_evaluate import draw_boxes_and_label_on_image_cv2,truncte_boxes_and_label_on_image_cv2
-# from keras_frcnn import Loss_treat as Losses_treat
 import shutil
 from keras_frcnn.coco import COCO
 
+from keras_frcnn import config
 cfg = config.Config()  # 实例化config.py文件中的类Config，存储到变量cfg中
 cfg.use_horizontal_flips = False
 cfg.use_vertical_flips = False
@@ -29,8 +25,8 @@ IoU_threshold_rpn = 0.70
 score_threshold_rpn = 0.5
 IoU_threshold_cls = 0.50
 score_threshold_cls = 0.001
-imageset = 'val'
-# imageset = 'test'
+subset = 'val'
+# subset = 'test'
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # 指定第一个GPU参与运算。
@@ -60,11 +56,9 @@ shared_layers = nn.nn_base(img_input, trainable=True)
 num_anchors = len(cfg.anchor_box_scales) * len(cfg.anchor_box_ratios)  # 计算特征图上一个点的锚框数
 rpn_layers = nn.rpn(shared_layers, num_anchors)  # rpn_layers = [x_class, x_regr, base_layers=shared_layers]
 classifier = nn.classifier(feature_map_input, roi_input, cfg.num_rois, nb_classes=len(class_mapping), trainable=True)
-# 最后分类：classifier[0]=TensorShape([Dimension(None), Dimension(32), Dimension(8)])
-# 最后回归：classifier[1]=TensorShape([Dimension(None), Dimension(32), Dimension(28)]) 原始图像上的边界框坐标数据？
 model_rpn = Model(img_input, rpn_layers)  # 模型输入为img_input, 输出为rpn_layers=[x_class, x_regr, base_layers=shared_layers]
-model_classifier_only = Model([feature_map_input, roi_input], classifier) #这两个模型有什么区别？？？？
-model_classifier = Model([feature_map_input, roi_input], classifier)  #这两个模型有什么区别？？？？
+model_classifier_only = Model([feature_map_input, roi_input], classifier)
+model_classifier = Model([feature_map_input, roi_input], classifier)
 
 print('Loading weights from {}'.format(cfg.model_path))
 model_rpn.load_weights(cfg.model_path, by_name=True)  # 根据网络层名称，加载训练好的网络权值
@@ -75,9 +69,12 @@ model_classifier.load_weights(cfg.model_path, by_name=True)
 model_rpn.compile(optimizer='sgd', loss='mse')  #此处不需要对网络进行训练了，损失函数与训练时的不一样!
 model_classifier.compile(optimizer='sgd', loss='mse')  # 编译分类预测网络，与训练网络不同
 
-Pr_path = "./dt_results_miniNIRPed_%s_B%d_%s" % (imageset, max_boxes, str(score_threshold_cls)[2:])
+Pr_path = "./results_miniNIRPed/dt_results_%s_B%d_%s" % (subset, max_boxes, str(score_threshold_cls)[2:])
+if not os.path.exists(Pr_path):  # if it exist already
+    # shutil.rmtree(Pr_path)     # reset the results directory 重置结果目录,也就是删除现有的文件夹images-optional
+    os.makedirs(Pr_path)  # 在程序当前目录下创建一个新的文件夹名为results_files_path = "results"
 
-time_cost_file = os.path.join(Pr_path, 'time_cost_list_{}.json'.format(imageset))
+time_cost_file = os.path.join(Pr_path, 'time_cost_list_{}.json'.format(subset))
 if os.path.exists(time_cost_file):
     file_obj = open(time_cost_file, 'r')
     time_cost_list = json.load(file_obj)
@@ -87,7 +84,7 @@ else:
     time_cost_list = []
     num_imgs_initial = 0
 
-bounding_boxes_file = os.path.join(Pr_path, 'DtResults_{}.json'.format(imageset))
+bounding_boxes_file = os.path.join(Pr_path, 'DtResults_{}.json'.format(subset))
 if os.path.exists(bounding_boxes_file):
     file_obj = open(bounding_boxes_file, 'r')
     bounding_boxes = json.load(file_obj)
@@ -96,14 +93,9 @@ else:
     bounding_boxes = []
 
 time_now_day = datetime.datetime.now().strftime('%Y%m%d')
-# 每张图片的检测结果存入一个以图片名命名的txt文件
-if not os.path.exists(Pr_path):  # if it exist already
-    # shutil.rmtree(Pr_path)        # reset the results directory 重置结果目录,也就是删除现有的文件夹images-optional
-    os.makedirs(Pr_path)  # 在程序当前目录下创建一个新的文件夹名为results_files_path = "results"
 
 def format_img_size(img):  # 对原始图像进行前处理：缩放。
     """ formats the image size based on config """  # 根据配置格式化图像大小
-    #img_min_side = float(cfg.im_rows)  # 图像的短边为cfg.im_rows=256像素
     resized_height = int(cfg.im_rows)
     resized_width = int(cfg.im_cols)
     (height, width, _) = img.shape #原始图像img=(720,1280),故：height=720, width=1280
@@ -138,10 +130,8 @@ def get_real_coordinates(ratio, x1, y1, x2, y2):
 
     return real_x1, real_y1, real_x2, real_y2
 
-# noinspection PyTypeChecker
 def predict_single_image(img_path):  # 预测单张图片中的目标
     st0 = time.time()  # 开始计时
-    cxy_RoI300_rpn = []
     img = cv2.imread(img_path)
     #img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)  # 原始图像img=(720,1280)
     if img is None:  # 如果未读入图像数据
@@ -151,14 +141,10 @@ def predict_single_image(img_path):  # 预测单张图片中的目标
 
     if K.image_data_format() == "channels_last":
         X_reImg = np.transpose(X_reImg, (0, 2, 3, 1))  # 转换图像X_reImg维度：X_reImg=(Samples=1,rows=512,cols=640,channels=3)
-    # get the feature maps and output from the RPN 从RPN获取特征图和输出
-    # add some nms to reduce many boxes
-    # 每张图片的检测结果存入一个以图片名命名的txt文件
 
-    img_id = img_path.split(".", 1)[0]
-    img_id = os.path.basename(os.path.normpath(img_id))
-
+    img_id = os.path.basename(img_path).split(".", 1)[0]
     time_pre_rpn = time.time()
+    # get the feature maps and output from the RPN 从RPN获取特征图和输出
     [Pcls_rpn, Pregr_rpn, Xbase_layers] = model_rpn.predict(X_reImg, verbose=0)  # RPN分类预测Pcls_rpn=(1, 32, 40, 10),RPN边界框回归坐标预测Pregr_rpn=(1, 32, 40, 40)，
     time_rpn_gpu = time.time()
     result = roi_helpers.rpn_to_roi(Pcls_rpn, Pregr_rpn, cfg, K.image_data_format(), overlap_thresh=IoU_threshold_rpn, max_boxes=max_boxes)#TODO：RPN的交并比阈值overlap_thresh=0.7 max_boxes=300
@@ -175,7 +161,6 @@ def predict_single_image(img_path):  # 预测单张图片中的目标
         if rois.shape[1] == 0:  # 防止最后一组没有数据
             break
         if jk == result.shape[0] // cfg.num_rois:  # =300//32=9 如果是最后一组，填充第1维12个成32个
-            # pad R
             curr_shape = rois.shape
             target_shape = (curr_shape[0], cfg.num_rois, curr_shape[2])
             rois_padded = np.zeros(target_shape).astype(rois.dtype)
@@ -183,16 +168,13 @@ def predict_single_image(img_path):  # 预测单张图片中的目标
             rois_padded[0, curr_shape[1]:, :] = rois[0, 0, :]  # 用最后一组的第0个RoI坐标填充第1维后面32-12=20个RoIs
             rois = rois_padded
         [Pcls_cls, Pregr_cls] = model_classifier_only.predict([Xbase_layers, rois], verbose=0)  # 分组预测，加快计算速度。注意：预测只输出分类预测和坐标回归预测两项
-
         #返回：最后锚框分类：Pcls_cls = out_class=(Samples=1, num_rois=32, nb_classes=2)；#假定分2类[行人得分，背景得分]
-        #  最后锚框坐标回归：Pregr_cls = out_regr=(Samples=1, num_rois=32, 4 * (nb_classes - 1)=4)#假定分2类(回归坐标不包括背景bg)
-        #  最后锚框坐标回归：Pregr_cls = out_regr=(Samples=1, num_rois=32, (4+1) * (nb_classes - 1)=(4+1))#假定分2类(回归坐标不包括背景bg)
-        # pdb.set_trace()
+        #最后锚框坐标回归：Pregr_cls = out_regr=(Samples=1, num_rois=32, 4 * (nb_classes - 1)=4)#假定分2类(回归坐标不包括背景bg)
+        #最后锚框坐标回归：Pregr_cls = out_regr=(Samples=1, num_rois=32, (4+1) * (nb_classes - 1)=(4+1))#假定分2类(回归坐标不包括背景bg)
+
         Pcls_cls[0, :, 1] -= 1 - 2 * score_threshold_cls
         for ii in range(Pcls_cls.shape[1]):  # 遍历当前组32个RoIs对目标行人预测概率
-            # if np.max(Pcls_cls[0, ii, :]) < score_threshold_cls or np.argmax(Pcls_cls[0, ii, :]) == (Pcls_cls.shape[2] - 1):
             if np.argmax(Pcls_cls[0, ii, :]) == (Pcls_cls.shape[2] - 1): #TODO:最大置信度为背景，则跳过本次循环。
-                # numpy.argmax(a, axis=None, out=None)返回沿轴axis最大值的索引，即最大分类预测值为背景。class_conf_threshold = 0.9
                 continue  # 跳过当前循环的后续语句，继续循环。
 
             cls_num = np.argmax(Pcls_cls[0, ii, :])  # 取出分类预测概率最大值的索引
@@ -207,7 +189,7 @@ def predict_single_image(img_path):  # 预测单张图片中的目标
                 ty /= cfg.classifier_regr_std[1]
                 tw /= cfg.classifier_regr_std[2]
                 th /= cfg.classifier_regr_std[3]
-                Dis_cls = round(cfg.Dis0*np.exp(-td), 2)
+                Dis_cls = round(cfg.Dis_mean*np.exp(-td), 2)
                 x, y, w, h = roi_helpers.apply_regr(x, y, w, h, tx, ty, tw, th)
                 # 执行坐标回归计算：返回修正后的特征图上RoI左上角点坐标及宽度圆整值(像素点)
             except Exception as e:  # 抛出异常但不中断程序，继续执行except后续语句
@@ -215,6 +197,7 @@ def predict_single_image(img_path):  # 预测单张图片中的目标
                 pass  # 空语句，是为了保持程序结构的完整性。pass不做任何事情，一般用做占位语句。
             boxes[cls_num].append([cfg.rpn_stride * x, cfg.rpn_stride * y, cfg.rpn_stride * (x + w), cfg.rpn_stride * (y + h), Dis_cls, np.max(Pcls_cls[0, ii, :])])
             #将RoI坐标从特征图返回到预处理的前处理后图上cls_num:(x, y, w, h,  Dis_rpn, Dis_cls, Pcls )
+
     time_cls_gpu = time.time()
 
     for cls_num, box in boxes.items():  #遍历边界框boxes的键(分类)：值(边界框坐标及概率)=(x, y, w, h, P)
@@ -241,15 +224,16 @@ def predict_single_image(img_path):  # 预测单张图片中的目标
 
 def predict(test_images_json):  # 预测args_指定的图片
     cocoGt = COCO(test_images_json)
-    imgIds = sorted(cocoGt.getImgIds())  # imgIds=[100013, 100024, 100063, 100065, 100074, 100084, 100143, 100154, 100159, 100164,...]
+    imgIds = sorted(cocoGt.getImgIds())  # imgIds=[100013, 100024, 100063, 100065,...]
     num_imgs_all = len(imgIds)
     for index_image in range(num_imgs_all):
         if index_image < num_imgs_initial-1:
             continue
         image = cocoGt.loadImgs(ids=imgIds[index_image])[0]
         img_name = image['file_name']     # file_path='\\58c58285bc26013700140940.png'
-        # test_img_path = os.path.join('E:\\Datasets\\NIRPed2021\\NIRPed\\images\\{}\\{}'.format(imageset, img_name))
-        test_img_path = '.\\data\\miniNIRPed\\images\\{}\\{}'.format(imageset, img_name)
+        # test_img_path = os.path.join('E:\\Datasets\\NIRPed2021\\NIRPed\\images\\{}\\{}'.format(subset, img_name))
+        # test_img_path = '.\\data\\NIRPed\\images\\{}\\{}'.format(subset, img_name)
+        test_img_path = '.\\data\\miniNIRPed\\images\\{}\\{}'.format(subset, img_name)
 
         if test_img_path == None:
             print('Notion:{} do not exist.'.format(test_img_path))
@@ -257,39 +241,34 @@ def predict(test_images_json):  # 预测args_指定的图片
         else:
             predict_single_image(test_img_path)
 
-        if index_image % 200 == 0:
+        if index_image % 50 == 0:
             print('N={}/{}:{} exist.'.format(index_image + 1, num_imgs_all, test_img_path))  # 打印预测图像的名称
 
             bounding_boxes.sort(key=lambda x: float(x['confidence']), reverse=True)  # sort detection-result by decreasing confidence
 
-            outfile = open(os.path.join(Pr_path,  'DtResults_NIRPed_%s.json' %(imageset)), 'w')
+            outfile = open(os.path.join(Pr_path,  'DtResults_%s.json' %(subset)), 'w')
             json.dump(bounding_boxes, outfile)
             outfile.close()
-            outfile = open(os.path.join(Pr_path, 'time_cost_list_NIRPed_%s.json' %(imageset)), 'w')
+            outfile = open(os.path.join(Pr_path, 'time_cost_list_%s.json' %(subset)), 'w')
             json.dump(time_cost_list, outfile)
             outfile.close()
 
     bounding_boxes.sort(key=lambda x: float(x['confidence']), reverse=True)  # sort detection-result by decreasing confidence
 
-    outfile = open(os.path.join(Pr_path, 'DtResults_NIRPed_.json'.format()), 'w')
+    outfile = open(os.path.join(Pr_path, 'DtResults_{}.json'.format(subset)), 'w')
     json.dump(bounding_boxes, outfile)
     outfile.close()
 
     mean_time_cost = np.round(np.mean(time_cost_list[1:], axis=0), 6)
     time_cost_list[0] = mean_time_cost.tolist()
-    outfile = open(os.path.join(Pr_path, 'time_cost_list_NIRPed_{}.json'.format(imageset)), 'w')
+    outfile = open(os.path.join(Pr_path, 'time_cost_list_{}.json'.format(subset)), 'w')
     json.dump(time_cost_list, outfile)
     outfile.close()
-    # dr_data = [{'confidence': '0.999992', 'file_id': 'Luor12m3R', 'bbox': '256 224 352 448'}, {'confidence': '0.999988', 'file_id': 'Luor13m104R', 'bbox': '704 192 800 416'},
-    # {'confidence': '0.999987', 'file_id': 'Tongxy4m84L850', 'bbox': '704 288 800 480'}, {'confidence': '0.999984', 'file_id': 'Tongxy8m131L850', 'bbox': '640 256 736 480'}, ……]
 
-# 每个python模块（python文件，也就是此处的test_frcnn_kitti.py和train_frcnn_kitti.py）都包含内置的变量__name__,当运行模块被执行的时候，
-# __name__等于文件名（包含了后缀.py）；如果import到其他模块中，则__name__等于模块名称（不包含后缀.py）。而“__main__”等于当前执行文件的
-# 名称（包含了后缀.py）。进而当模块被直接执行时，__name__ == 'main'结果为真。
 if __name__ == '__main__':
-    if imageset == 'val':
-        print('Detecte imageset {}'.format(cfg.val_file))
+    if subset == 'val':
+        print('Detecte subset {}'.format(cfg.val_file))
         predict(cfg.val_file)
-    elif imageset == 'test':
-        print('Detecte imageset {}'.format(cfg.test_file))
+    elif subset == 'test':
+        print('Detecte subset {}'.format(cfg.test_file))
         predict(cfg.test_file)

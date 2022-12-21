@@ -132,7 +132,7 @@ def train_NIR():  # 定义基于Kitti数据集的网络训练函数
 
 		if learning_rate_rpn < 1e-10 and learning_rate_cls < 1e-10 and learning_rate_all < 1e-10:
 			curr_loss_round = '%.3g' % curr_loss  # curr_loss0 = np.round(curr_loss, decimals=4)
-			best_model_path = '{}L{}Dis{}Ped{}.h5'.format(cfg.model_path0, str(curr_loss_round)[2:], cfg.Dis0, classes_count[training_cls])
+			best_model_path = '{}L{}Dis{}Ped{}.h5'.format(cfg.model_path0, str(curr_loss_round)[2:], cfg.Dis_mean, classes_count[training_cls])
 			model_all.save_weights(best_model_path)
 			model_all.save_weights(cfg.model_path)
 			break
@@ -140,7 +140,7 @@ def train_NIR():  # 定义基于Kitti数据集的网络训练函数
 			cfg.use_bg_imgs = True
 
 		times_increase_max = int(len(train_dataset) / cfg.length_epoch)
-
+		#TODO:  ******学习率自动优化******学习率自动优化******学习率自动优化******学习率自动优化******学习率自动优化******学习率自动优化******学习率自动优化******
 		if epoch_num > 2*times_increase_max and int(epoch_num % times_increase_max) == 0:
 			if np.mean(train_loss_array[-int(times_increase_max):, :2]) >= 0.975 * np.mean(train_loss_array[-int(2*times_increase_max):-int(times_increase_max), :2]):  # train_loss_array
 				learning_rate_rpn = 0.1 * learning_rate_rpn
@@ -160,7 +160,7 @@ def train_NIR():  # 定义基于Kitti数据集的网络训练函数
 				# TODO: set new lr:K.set_value(model_rpn.optimizer.lr, learning_rate_all) # model_rpn.optimizer.lr = learning_rate_all
 				K.set_value(model_all.optimizer.lr, np.float32(learning_rate_all))
 				model_all.optimizer.epsilon = 0.1 * learning_rate_all
-
+		#TODO:  ******检测网络负样本最小交并比cfg.classifier_min_overlap自动优化******检测网络负样本最小交并比cfg.classifier_min_overlap自动优化******
 		if epoch_num > 10 and epoch_num % 5 == 0:
 			if np.mean(train_loss_array[-5:, 2:4]) <= 0.95 * np.mean(train_loss_array[-10:-5, 2:4]):  # train_loss_array
 				cfg.classifier_min_overlap = min(cfg.classifier_max_overlap, cfg.classifier_min_overlap + 0.01)
@@ -171,6 +171,7 @@ def train_NIR():  # 定义基于Kitti数据集的网络训练函数
 				print('\033[30;41m Decrease classifier_min_overlap to {}\033[0m'.format(cfg.classifier_min_overlap))
 			else:
 				print('\033[30;41m Keep classifier_min_overlap for {}\033[0m'.format(cfg.classifier_min_overlap))
+		#TODO:  ******RPN网络自动停止训练准则******RPN网络自动停止训练准则******RPN网络自动停止训练准则******RPN网络自动停止训练准则******
 		if epoch_num > 10:
 			if np.random.randint(0, 5) == 0:
 				cfg.rpn_is_Ok = False
@@ -257,6 +258,7 @@ def train_NIR():  # 定义基于Kitti数据集的网络训练函数
 					if img_name in show_imgs_list:
 						if not cfg.rpn_is_Ok:
 							Visual_RPN_Train(X_reImg0, Ycls_rpn, img_data, cfg) #TODO:可视化训练RPN的正负锚框。
+
 						Visual_RPN_Predict(X_reImg0, BBdt300_rpn, img_data, cfg) #TODO：取overlap_thresh=0.9999，预测概率大于0.5 的作为RPN 网络对目标存在的预测框。
 						Visual_Cls_Train(X_reImg0, X_BBs68[:, sel_samples, 0:4], Ycls_BBs68[:, sel_samples, :], img_data, gta_feature_map, ignore_feature_map, cfg)  #TODO:可视化训练Classifier网络的正、负样本框（由RPN提供并回归过）。
 						boxes_dt = model_classifier_predict(model_classifier, X_reImg, BBdt300_rpn, roi_helpers, class_mapping, img_data, cfg)
@@ -317,10 +319,9 @@ def train_NIR():  # 定义基于Kitti数据集的网络训练函数
 
 					plt.figure(1, figsize=(8, 4))
 					# plt.xlabel('iterations (x%d)' % cfg.length_epoch, font)
-					plt.xlabel('iterations', font)
+					plt.xlabel('iterations', font)	# plt.xlabel('Epoches')
 					plt.ylim(0, 6)#plt.xlim(0, 100)
 					plt.ylabel('training loss (%)', font)
-					# plt.xlabel('Epoches')
 					plt.plot(range(train_loss_array.shape[0]), np.array(100 * train_loss_array[:, 0]), 'k', label=' RPN cls loss')
 					plt.plot(range(train_loss_array.shape[0]), np.array(100 * train_loss_array[:, 1]), 'g', label=' RPN regr loss')
 					plt.plot(range(train_loss_array.shape[0]), np.array(100 * train_loss_array[:, 2]), 'b', label=' class cls loss')
@@ -363,6 +364,7 @@ def train_NIR():  # 定义基于Kitti数据集的网络训练函数
 				#model_all.save_weights(cfg.model_path)
 				# pdb.set_trace()
 				continue
+
 	print('Training complete, exiting.')  # 训练完成并退出
 
 if __name__ == '__main__':
@@ -370,6 +372,6 @@ if __name__ == '__main__':
 	os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # 指定第0个GPU:TitanRTX参与运算。
 	gpu_cfg = tf.compat.v1.ConfigProto()
 	gpu_cfg.gpu_options.allow_growth = False
-	gpu_cfg.gpu_options.per_process_gpu_memory_fraction = 0.5  # 占用GPU90%的显存
+	gpu_cfg.gpu_options.per_process_gpu_memory_fraction = 0.5  # 占用50%的GPU显存
 	session = tf.compat.v1.Session(config=gpu_cfg)
 	train_NIR()

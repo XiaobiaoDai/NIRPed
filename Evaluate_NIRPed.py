@@ -1,17 +1,16 @@
-import os, json, glob, shutil, argparse, pdb, sys,  cv2, datetime, pickle,  operator,math, copy
-# from scipy import interpolate
-import numpy as np
+import os, json, glob, shutil, argparse, pdb, sys,  cv2, copy, datetime, pickle, operator, math
 import matplotlib.pyplot as plt
-#np.set_printoptions(precision=6, threshold=np.inf, edgeitems=10, linewidth=260, suppress=True)
-from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 from PIL import Image, ImageDraw, ImageFont
 from keras_frcnn.coco import COCO
-from keras_frcnn import config
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+import numpy as np
 np.set_printoptions(precision=6, threshold=np.inf, edgeitems=10, linewidth=260, suppress=True)
+
+from keras_frcnn import config
 cfg = config.Config()
-time_now_min = datetime.datetime.now().strftime('%Y%m%d%H%M')
-time_now_day = datetime.datetime.now().strftime('%Y%m%d')
-# MINOVERLAP = 0.40  # TODO:default value (defined in the PASCAL VOC2012 challenge)最小交并比MINOVERLAP = 0.5
+
 MINOVERLAP = 0.50  # TODO:default value (defined in the PASCAL VOC2012 challenge)最小交并比MINOVERLAP = 0.5
 Hf = 3985  #TODO:4125
 
@@ -23,17 +22,17 @@ evalute_new = 1  #显示MR-2时的检测结果
 
 idx_Dis_max = 8
 
-idx_step = 100
+idx_step = 10
 max_boxes = 300
 
 IoU_threshold_rpn = 0.70
 score_threshold_rpn = 0.50
 IoU_threshold_cls = 0.50
 score_threshold_cls = 0.001
-imageset = 'val'
-# imageset = 'test'
+subset = 'val'
+# subset = 'test'
 
-Detection_results_dir = "./results/dt_results_%s_B%d_%s" % (imageset, max_boxes, str(score_threshold_cls)[2:])
+Detection_results_dir = "./results_miniNIRPed/dt_results_%s_B%d_%s" % (subset, max_boxes, str(score_threshold_cls)[2:])
 
 class NpEncoder(json.JSONEncoder):
 	def default(self, obj):
@@ -86,8 +85,9 @@ def Temp_gt_Generation(TEMP_FILES_Path):
 			Wea = 'Rain'
 		num_test_imgs[Wea] += 1
 
-		# img_path = os.path.join('E:\\Datasets\\NIRPed2021\\NIRPed\\images\\{}\\{}'.format(imageset, img_name))
-		img_path = os.path.join('.\\data\\miniNIRPed\\images\\{}\\{}'.format(imageset, img_name))
+		# img_path = os.path.join('E:\\Datasets\\NIRPed2021\\NIRPed\\images\\{}\\{}'.format(subset, img_name))
+		# img_path = os.path.join('.\\data\\NIRPed\\images\\{}\\{}'.format(subset, img_name))
+		img_path = os.path.join('.\\data\\miniNIRPed\\images\\{}\\{}'.format(subset, img_name))
 
 		if img_path == None:
 			print('Notion:{} is not exist.'.format(img_path))
@@ -137,7 +137,6 @@ def Temp_gt_Generation(TEMP_FILES_Path):
 								gt_counter_per_class[class_name]['All'][dis_gt_index] += 1
 								gt_counter_per_class[class_name][height][dis_gt_index] += 1
 								gt_counter_per_class[class_name][Wea][dis_gt_index] += 1
-
 						elif cfg.evaluate_subset == 'All':
 							gt_counter_per_class[class_name]['All'][dis_gt_index] += 1
 							gt_counter_per_class[class_name][height][dis_gt_index] += 1
@@ -179,7 +178,7 @@ def Temp_gt_Generation(TEMP_FILES_Path):
 	num_test_imgs['tall'] = num_test_imgs['All']
 	for attr in num_test_imgs:
 		print('NIRPed：num_test_imgs_%s=%d' % (attr, num_test_imgs[attr]))
-	# for class_name in ['Ped', 'Peo', 'Bic', 'Mot', 'Ign', 'bg']:
+
 	for class_name in ['Ped']:
 		for attr in gt_counter_per_class[class_name]:
 			print('class_name:%s,attribute:%s'% (class_name, attr))
@@ -220,8 +219,6 @@ edge_kept = 2
 edge_top = 0
 def draw_tags_orderly(draw,label,Doted_text,color_cls,left,right,top,bottom,h_box,edge_kept=5):
 	label_size = draw.textsize(label, font_image)
-	# text_bbox = draw.textbbox(label, font_image)
-	# text_length = draw.textbbox(label, font_image)
 	if bottom < cfg.im_rows_show - 10 - edge_kept - label_size[1]:
 		bottom_text_boundary = bottom + 20
 	else:
@@ -276,9 +273,6 @@ def draw_tags_orderly(draw,label,Doted_text,color_cls,left,right,top,bottom,h_bo
 				text_origin = np.array([x, y_modified])
 				text_origin_rectangle = np.array([x-1, y_modified])
 				draw.rectangle([tuple(text_origin_rectangle), tuple(text_origin_rectangle + label_size)], outline=color_cls[0], fill=color_white, width=width_line_image) #TODO:fill=(255, 255, 255) 将改成：fill=color_white
-				'''如果你讀了灰度圖像並嘗試繪製顏色矩形就可以了，你會得到錯誤信息：TypeError: function takes exactly 1 argument (3 given)
-				你需要給一個顏色像outline=(255)，沒有RGB色彩如outline=(255, 0, 0)。否則，你會得到錯誤，因爲你給了3個顏色參數，而不是一個。
-				如果你想在灰度圖像上繪製顏色，你可以先將圖像轉換爲RGB：img = img.convert('RGB')'''
 				draw.text(text_origin, label, fill=color_cls[1], font=font_image)
 				Doted_text.append([text_origin[0], text_origin[1], label_size[0], label_size[1]])
 			except:
@@ -302,9 +296,7 @@ def draw_tags_orderly(draw,label,Doted_text,color_cls,left,right,top,bottom,h_bo
 	# draw.text(text_origin, label, fill=color_Ped[1], font=font_image)
 	# draw.rectangle([left, top, right, bottom], outline=color_cls[0], width=width_line_image)  # 淡红色单框：缩放到resized图上标记框
 	return draw, Doted_text
-# TODO: *** 有序显示标记。*** 有序显示标记。*** 有序显示标记。*** 有序显示标记。*** 有序显示标记。*** 有序显示标记。*** 有序显示标记。
 
-#TODO:*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.
 #TODO:*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.
 def MR_FPPI_Plot(MR_FPPI_dis_dic, detectResults_Path, max_or_seg):# TODO: ***图像显示MissRate_FPPI曲线。
 	font_size = 24
@@ -341,14 +333,13 @@ def MR_FPPI_Plot(MR_FPPI_dis_dic, detectResults_Path, max_or_seg):# TODO: ***图
 				dis_txt = '%d≤d<%dm' % (dis_idx * 10, dis_idx * 10 + 10)
 			# pdb.set_trace()
 			if dis_idx * 10 + 10 == cfg.Dis_threshold:
-				if max_or_seg == 'max' and cfg.evaluate_subset=='Reasonable':
+				if max_or_seg == 'max' and cfg.evaluate_subset == 'Reasonable':
 					plt.loglog(MR_FPPI_array[:, 0], MR_FPPI_array[:, 1], label='%.2f%%(%.2f%%) %s\n[reasonable]' % (LAMR_2*100, LAMR_4*100, dis_txt), color=colors[dis_idx], linestyle='-', linewidth=2)
 				else:
 					plt.loglog(MR_FPPI_array[:, 0], MR_FPPI_array[:, 1], label='%.2f%%(%.2f%%) %s' % (LAMR_2 * 100, LAMR_4 * 100, dis_txt), color=colors[dis_idx], linestyle='-', linewidth=2)
 			else:
 				plt.loglog(MR_FPPI_array[:, 0], MR_FPPI_array[:, 1], label='%.2f%%(%.2f%%) %s' % (LAMR_2*100, LAMR_4*100, dis_txt), color=colors[dis_idx], linestyle='-', linewidth=1)
 
-		# pdb.set_trace()
 		plt.grid(color='b', linestyle='--', linewidth=0.5, alpha=0.3)
 		plt.xlabel('false positives per image', font)
 		plt.ylabel('miss rate ({})'.format(attr), font)
@@ -375,7 +366,7 @@ def MR_FPPI_Plot(MR_FPPI_dis_dic, detectResults_Path, max_or_seg):# TODO: ***图
 
 		fig.subplots_adjust(left=0.12, right=0.97, top=0.98, bottom=0.12)
 		# plt.show()
-		fig.savefig(os.path.join(os.path.dirname(detectResults_Path), 'Miss_RateVsFPPI_loglog_NIRPed_dis_{}_{}_{}.png'.format(max_or_seg, cfg.evaluate_subset, attr)), bbox_inches='tight')
+		fig.savefig(os.path.join(os.path.dirname(detectResults_Path), 'Miss_RateVsFPPI_loglog_dis_{}_{}_{}.png'.format(max_or_seg, cfg.evaluate_subset, attr)), bbox_inches='tight')
 	return None
 #TODO:*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.
 
@@ -393,7 +384,7 @@ def PR_Plot(PR_dis_dic, detectResults_Path, max_or_seg):# TODO: ***图像显示P
 			PR_array = np.array(PR_dis_dic[attr][dis_idx])
 			if PR_array.size == 0:
 				if max_or_seg == 'seg':
-					print('Did not detect any pedestrian in distance segment [%d,%d)]' % (dis_idx*10,(dis_idx+1)*10))
+					print('Did not detect any pedestrian in distance segment [%d,%d)]' % (dis_idx*10, (dis_idx+1)*10))
 				elif max_or_seg == 'max':
 					print('Did not detect any pedestrian in distance range [3,%d)]' % ((dis_idx + 1) * 10))
 				continue
@@ -411,14 +402,13 @@ def PR_Plot(PR_dis_dic, detectResults_Path, max_or_seg):# TODO: ***图像显示P
 				dis_txt = '%d≤d<%dm' % (dis_idx * 10, dis_idx * 10 + 10)
 
 			if dis_idx * 10 + 10 == cfg.Dis_threshold:
-				if max_or_seg == 'max' and cfg.evaluate_subset=='Reasonable':
+				if max_or_seg == 'max' and cfg.evaluate_subset == 'Reasonable':
 					plt.plot(PR_array[:, 0], PR_array[:, 1], label='AP=%.2f%% %s[reasonable]' % (100*AP, dis_txt), color=colors[dis_idx], linestyle='-', linewidth=2)
 				else:
 					plt.plot(PR_array[:, 0], PR_array[:, 1], label='AP=%.2f%% %s' % (100*AP, dis_txt), color=colors[dis_idx], linestyle='-', linewidth=2)
 			else:
 				plt.plot(PR_array[:, 0], PR_array[:, 1], label='AP=%.2f%% %s' % (100*AP, dis_txt), color=colors[dis_idx], linestyle='-', linewidth=1)
 
-		# pdb.set_trace()
 		plt.grid(color='b', linestyle='--', linewidth=0.5, alpha=0.3)
 		plt.xlabel('recall', font)
 		plt.ylabel('precision (%s)' % (attr), font)
@@ -440,27 +430,23 @@ def PR_Plot(PR_dis_dic, detectResults_Path, max_or_seg):# TODO: ***图像显示P
 		plt.grid(color='b', linestyle='--', linewidth=0.5, alpha=0.3)
 		plt.grid(True)
 
-		# fig.subplots_adjust(left=0.08, right=0.95, top=0.95, bottom=0.09)
 		fig.subplots_adjust(left=0.12, right=0.97, top=0.98, bottom=0.12)
 		plt.show()
-		# pdb.set_trace()
-		time_now_min = datetime.datetime.now().strftime('%Y%m%d%H%M')
-		fig.savefig(os.path.join(os.path.dirname(detectResults_Path), 'PR_NIRPed_dis_{}_{}_{}.png'.format(max_or_seg, cfg.evaluate_subset, attr, time_now_min)), bbox_inches='tight')
+		fig.savefig(os.path.join(os.path.dirname(detectResults_Path), 'PR_dis_{}_{}_{}.png'.format(max_or_seg, cfg.evaluate_subset, attr)), bbox_inches='tight')
 	return None
 
-#TODO:*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.*** 图像显示MissRate_FPPI.
+#TODO:******后处理测距误差******后处理测距误差******后处理测距误差******后处理测距误差******后处理测距误差******后处理测距误差******
 def post_processing(DE_conf, abs_flag = False):
 	DE_max_dic = copy.deepcopy(DE_conf)
 	DE_seg_dic = copy.deepcopy(DE_conf)
 	for attr in DE_conf:
 		Results_all_dis = []
-		DE_results = {}
 		for key_dis, v_dis in DE_conf[attr].items():
 			Results_all_dis += v_dis
 			num_dis = len(v_dis)
 			if abs_flag:
 				v_dis = np.abs(v_dis)
-				# pdb.set_trace()
+
 			if num_dis > 0:
 				mean = round(np.mean(v_dis), 2)
 				sigma = round(np.std(v_dis), 2)
@@ -482,8 +468,7 @@ def post_processing(DE_conf, abs_flag = False):
 
 	return DE_seg_dic, DE_max_dic
 
-#TODO: ***计算MissRate_FPPI曲线的函数。 ***计算MissRate_FPPI曲线的函数。 ***计算MissRate_FPPI曲线的函数。 ***计算MissRate_FPPI曲线的函数。
-#TODO: ***计算MissRate_FPPI曲线的函数。 ***计算MissRate_FPPI曲线的函数。 ***计算MissRate_FPPI曲线的函数。 ***计算MissRate_FPPI曲线的函数。
+#TODO: ******计算MissRate_FPPI和PR曲线的函数******计算MissRate_FPPI和PR曲线的函数******计算MissRate_FPPI和PR曲线的函数******
 def MR_FPPI_PR_Calculate(detectResults_Path):
 	""" Create a '.temp_files/' and 'results/' directory 创建“.temp_files/”和“results/”目录"""
 	TEMP_FILES_DIR = os.path.dirname(detectResults_Path)
@@ -544,28 +529,21 @@ def MR_FPPI_PR_Calculate(detectResults_Path):
 		min_overlap = MINOVERLAP  # 最小交并比设置为：MINOVERLAP = 0.5
 		gt_file_used = []
 		ignored_dt_count = [0]*12 #TODO: 记录被忽略检测框的数量。
-		# dis_ignored_dt_count = 0 #TODO: 记超出距离范围而被忽略检测框的数量。
-		# TODO: 按检测框得分高低开始评估MR-FPPI和AP。
+
 		# TODO: 按检测框得分高低开始评估MR-FPPI和AP。
 		# idx = 0, box_detection = {'class_name': 'Ped', 'confidence': '1.0', 'file_id': 'Data20200624201506_971695N850F12', 'bbox': [1040.0, 202.0, 1168.0, 517.0], 'Dis': 14.78}
 		for idx, box_detection in enumerate(dt_data):
 			img_id = box_detection['file_id']
-			if img_id[:10] in ['Data202007']:  #TODO：更改2020年7月份拍摄的图像的年份到2018年。
-				img_id = 'Data201807' + img_id[10:]
 			# assign box_detection-result to ground truth object if any
-			# open ground-truth with that file_id
-			gt_file = os.path.join(TEMP_FILES_Path, img_id + '_gt.json')  # gt_file = '.temp_files/Tongxy13m161R850_gt.json'
-			# gt_file_temp = os.path.join(TEMP_FILES_Path_temp, img_id + '_gt_temp.json')  # gt_file = '.temp_files/Tongxy13m161R850_gt.json'
+			# open ground-truth with that img_id
+			gt_file = os.path.join(TEMP_FILES_Path, img_id + '_gt.json')  # gt_file = '.temp_files/Data20200624201506_971695N850F12_gt.json'
 
-			# if img_id not in gt_file_used:
 			try:
 				gt_data_temp = json.load(open(gt_file))
 			except:
 				print("\033[5;31;47m\tImage:{}, is not in ground-truth. Please check that ground-truth and detect results are matched.\033[0m".format(img_id))
 				continue
-			# else:
-			# 	gt_data_temp = json.load(open(gt_file_temp))
-			# gt_data = [{'class_name': 'Ped', 'bbox': '101 312 217 580 16.3', 'used': False}, {'class_name': 'Ped', 'bbox': '384 281 460 500 20.9', 'used': False}]
+
 			ovmax = -1  # 最大交并比初值设为-1
 			a_percentage_max = -1  # 最大交并比初值设为-1
 			gt_matched = -1  # 当前第idx预测框没有匹配上GT
@@ -607,7 +585,6 @@ def MR_FPPI_PR_Calculate(detectResults_Path):
 									gt_matched = obj
 
 			try:  # gt_match={'class_name': 'Ped', 'bbox': '98 309 212 584 16.3', 'used': False, 'scale_dis': 'near'}gt_match=-1将出错不能进行。
-				#if gt_matched['class_name'] in ['Peo', 'Ign', 'ignore', 'bicycledriver', 'Bic', 'Cyc', 'motorbikedriver', 'Mot']:
 				if not in_boxes:   #TODO:{'class_name': 'Ped', 'confidence': '1.0', 'file_id': 'Data20190113195620_050000', 'bbox': [1040.0, 0.0, 1312.0, 652.0], 'Dis': 20520.62}
 					gt_matched = gt_data_temp[0]
 					fp_dic['All'][idx, dis_dt_index] = 1
@@ -681,7 +658,6 @@ def MR_FPPI_PR_Calculate(detectResults_Path):
 										# TODO：正确检测目标的距离误差求解
 										dis_dtp = round(Hf / height_dt, 2)  # TODO: 将预测框像素高度直接估算为距离。
 										AE_dtp_instance = abs(dis_dtp - dis_gt)  # TODO:AE=absolute_error
-										# AE_dtp_instance = dis_dtp - dis_gt   #TODO:AE=absolute_error
 										AE_dtp_seg_dic['All'][dis_gt_index].append(AE_dtp_instance)
 										AE_dtp_seg_dic[gt_matched['Wea']][dis_gt_index].append(AE_dtp_instance)
 										AE_dtp_seg_dic[gt_matched['Height']][dis_gt_index].append(AE_dtp_instance)
@@ -842,7 +818,6 @@ def MR_FPPI_PR_Calculate(detectResults_Path):
 		AER_DE_seg_dic, AER_DE_max_dic = post_processing(AER_DE_seg_dic)
 
 		# TODO:***将判定为假正例fp的检测框保存下来，为后续可视化做准备。***将判定为假正例fp的检测框保存下来，为后续可视化做准备。***将判定为假正例fp的检测框保存下来，为后续可视化做准备。
-		# pdb.set_trace()
 		print('\n\nMR_FPPI_dis_max_dic:')
 		MR_FPPI_Plot(MR_FPPI_dis_max_dic, detectResults_Path, 'max') #TODO:max_or_seg
 		print('\n\nPR_dis_max_dic:')
@@ -853,23 +828,16 @@ def MR_FPPI_PR_Calculate(detectResults_Path):
 		PR_Plot(PR_dis_seg_dic, detectResults_Path, 'seg')  # TODO:max_or_seg
 
 	shutil.rmtree(TEMP_FILES_Path)  # 删除临时文件夹及其下所有文件。
-	# shutil.rmtree(TEMP_FILES_Path_temp)  # 删除临时文件夹及其下所有文件。
 	return MR_FPPI_dis_max_dic, MR_FPPI_dis_seg_dic,PR_dis_max_dic,PR_dis_seg_dic, AE_dtp_seg_dic, AE_dtp_max_dic,\
 		   AE_DE_seg_dic, AE_DE_max_dic,AER_dtp_seg_dic, AER_dtp_max_dic,AER_DE_seg_dic, AER_DE_max_dic,\
 		   annos_AER_bad, annos_FN, annos_FP
-#TODO: ***计算MissRate_FPPI曲线的函数。 ***计算MissRate_FPPI曲线的函数。 ***计算MissRate_FPPI曲线的函数。 ***计算MissRate_FPPI曲线的函数。TEMP_FILES_Path_temp
 
-#TODO:*** 图像显示检测结果.***图像显示检测结果.***图像显示检测结果.***图像显示检测结果.***图像显示检测结果.***图像显示检测结果.***图像显示检测结果.
 #TODO:*** 图像显示检测结果.***图像显示检测结果.***图像显示检测结果.***图像显示检测结果.***图像显示检测结果.***图像显示检测结果.***图像显示检测结果.
 def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Dis, annos_AER_bad_Dis, annos_miss_Ped_Dis, score_threshold):
-	# TODO: ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。
-	# TODO: ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。
 	txt_output_path = os.path.join(imgs_dt_show_dir, 'annos_GT_txt_FP_AER_bad_miss_Ped.txt')
 	annos_GT_txt = open(txt_output_path, 'w')
-	Dis_threshold = 50
 	annos_GT_txt.write('path, x1, y1, x2, y2, Dis, Age, Dif, Sce, Wea, Occlusion, Ignore, pose, truncation, ID, cls\n')
-
-	# TODO: ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。
+	#TODO: ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。
 
 	num_Bg_Img = 700000
 	cocoGt = COCO(cfg.annos_file)
@@ -910,16 +878,17 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 	path_img_dt_FN_region_dir_FP = os.path.join(path_img_dt_FN_region_dir, 'visualize_FN_FP')
 	if not os.path.exists(path_img_dt_FN_region_dir_FP):
 		os.makedirs(path_img_dt_FN_region_dir_FP)
+	# img_data={'id': 100000, 'file_name': 'Data20181219200348_010000.png', 'height': 720, 'width': 1280,
+	# 'daytime': 'night', 'scenes_id': 2, 'weathers_id': 1, 'seasons_id': 0, 'recordings_id': 0, 'imageset': 'train'}
 	num_test_imgs = len(images)
-	for img_idx, img_data in enumerate(images):  # img_data={'id': 100000, 'file_name': 'Data20181219200348_010000.png', 'height': 720, 'width': 1280, 'daytime': 'night', 'scenes_id': 2, 'weathers_id': 1, 'seasons_id': 0, 'recordings_id': 0, 'imageset': 'train'}
+	for img_idx, img_data in enumerate(images):
 		img_name = img_data['file_name']
 		image_id = img_name.split('.', 1)[0]
-
 		print('\033[1;30;43m Process:%d / %d \033[0m:%s' % (img_idx, num_test_imgs, image_id))
 
-		# img_path = os.path.join('E:\\Datasets\\NIRPed2021\\NIRPed\\images\\{}\\{}'.format(imageset, img_name))
 		try:
-			img_path = '.\\data\\miniNIRPed\\images\\{}\\{}'.format(imageset, img_name)
+			# img_path = os.path.join('E:\\Datasets\\NIRPed2021\\NIRPed\\images\\{}\\{}'.format(subset, img_name))
+			img_path = '.\\data\\miniNIRPed\\images\\{}\\{}'.format(subset, img_name)
 		except:
 			continue
 
@@ -948,19 +917,14 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 			#continue
 		try:
 			img = cv2.imread(img_path)
-			# (rows, cols) = img.shape[:2]
 		except:
 			print('Notion:do not find image: {}.'.format(img_path))
-			#pdb.set_trace()
-		# TODO: ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。
+
 		# TODO: ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。
 		if annos_GT == []:
-			#num_Bg_Img = num_Bg_Img + 1
 			annos_GT_txt.write(img_dt_results_path + ',' + '0,0,0,0' + ',' + '100' + ',' + '0,0,0,0' + ',' + 'Neu' + ',' + 'Esay' + ',' + Sce + ',' + Wea + ',' + str(num_Bg_Img) + ',' + 'Bg_Img' + '\n')
 
-		# TODO: ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。  ***将背景图片写入记事本。
-
-		image_with_boxes =Image.fromarray(np.uint8(img)) # image_with_boxes = image_with_boxes.resize((width, height), Image.ANTIALIAS)/= image_with_boxes.resize((cfg.im_cols_show, cfg.im_rows_show), Image.BICUBIC)
+		image_with_boxes =Image.fromarray(np.uint8(img))
 		draw = ImageDraw.Draw(image_with_boxes)
 		'''gt_data_temp=[{"class_name": "Ped", "bbox": [39, 191, 153, 525], "Dis": 13.4, "used": false, "Dif": false, "Occ_Coe": 0.0, "Age": "Adult", "area": 38076}, 
 						{"class_name": "Ped", "bbox": [434, 208, 569, 511], "Dis": 13.0, "used": false, "Dif": false, "Occ_Coe": 0.0, "Age": "Adult", "area": 40905}, 
@@ -970,12 +934,10 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 		# TODO: ***切片FP 检测结果。***切片FP 检测结果。***切片FP 检测结果。***切片FP 检测结果。***切片FP 检测结果。***切片FP 检测结果。***切片FP 检测结果。
 		if image_id in annos_FP_Dis:
 			annos_FP = annos_FP_Dis[image_id]
-			# 	pdb.set_trace()
 			for index, anno in enumerate(annos_FP): #anno={'class_name': 'Ped', 'confidence': '0.999982', 'BB_dt': [240.0, 224.0, 288.0, 404.0], 'Dis_dt': 25.35}
 				b = anno['BB_dt']
 				left, top, right, bottom = int(b[0]), int(b[1]), int(b[2]), int(b[3])
-				#draw.rectangle([left-2, top-2, right+2, bottom+2], outline=color_FP[0], width=size_font_highlight)  # 淡红色单框：缩放到resized图上标记框
-				# TODO:***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。
+				#TODO:***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。
 				ovmax = 0
 				'''annos_GT=[{'id': 10036185, 'category_id': 1, 'image_id': 107911, 'pose_id': 0, 'tracking_id': 100000, 'bbox': [294, 200, 68, 225], 'Dis': 19.2, 'vis_box': [294, 200, 68, 225],
 				'Occ_Coe': 0.0, 'Dif': False, 'Ign': 0, 'area': 15300, 'Tru': 0, 'Age': 'Adult'}, {'id': 10036186, 'category_id': 1, 'image_id': 107911, 'pose_id': 0, 'tracking_id': 100000,
@@ -1112,19 +1074,15 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 					path_img_dt_FP_region_path = os.path.join(path_img_dt_FP_region_dir_Bg, '%s_FP_Bg%d_%d.png' % (image_id, index, Dis_dt))
 
 				region_FP.save(path_img_dt_FP_region_path)  # 保存图片Data20181220192501_020000_FP0_51
-		# 		TODO:***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。
-		# TODO: ***切片FP 检测结果。***切片FP 检测结果。***切片FP 检测结果。***切片FP 检测结果。***切片FP 检测结果。***切片FP 检测结果。***切片FP 检测结果。
-        #
-		# TODO: ***切片AER_bad 检测结果。***切片AER_bad 检测结果。***切片AER_bad 检测结果。***切片AER_bad 检测结果。
+				#TODO:***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。***切片显示FP。
+
 		# TODO: ***切片AER_bad 检测结果。***切片AER_bad 检测结果。***切片AER_bad 检测结果。***切片AER_bad 检测结果。
 		if image_id in annos_AER_bad_Dis:
 			annos_AER_bad = annos_AER_bad_Dis[image_id]
 			for index, anno in enumerate(annos_AER_bad):
 				b = anno['BB_dt']
 				left, top, right, bottom = int(b[0]), int(b[1]), int(b[2]), int(b[3])
-				# draw.rectangle([left-2, top-2, right+2, bottom+2], outline=color_AER_bad[0], width=size_font_highlight)  # 淡红色单框：缩放到resized图上标记框
 
-				# TODO:***切片显示bad error rate of distance estimation。***切片显示bad error rate of distance estimation。
 				# TODO:***切片显示bad error rate of distance estimation。***切片显示bad error rate of distance estimation。
 				b_gt = anno['BB_gt']
 				x1, y1, x2, y2 = int(b_gt[0]), int(b_gt[1]), int(b_gt[2]), int(b_gt[3])
@@ -1155,10 +1113,8 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 				draw_AER_bad.rectangle([int(scale_resize*(left-x1_slice)), int(scale_resize*(top-y1_slice)), int(scale_resize*(right-x1_slice)), int(scale_resize*(bottom-y1_slice))], outline=color_TP[0], width=width_line_slice)  # 淡红色单框：缩放到resized图上标记框
 				draw_AER_bad.rectangle([int(scale_resize*(x1-x1_slice)), int(scale_resize*(y1-y1_slice)), int(scale_resize*(x2-x1_slice)), int(scale_resize*(y2-y1_slice))], outline=color_GT[0], width=width_line_slice+1)  # 淡红色单框：缩放到resized图上标记框
 
-				# pdb.set_trace()
 				ER_bad = 100*(dis_dt-dis_gt)/dis_gt
 				label = '%.1f%%' % ER_bad
-				# label = '%.1fm' % dis_dt
 				font_slice = ImageFont.truetype('arial.ttf', size=size_font_slice)
 				label_size = draw_AER_bad.textsize(label, font_slice)
 				text_origin = np.array([int(0.5*w_resize - 0.5*label_size[0]), edge_top])
@@ -1188,9 +1144,7 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 
 				# TODO:***切片显示bad error rate of distance estimation。***切片显示bad error rate of distance estimation。
 
-		# TODO: ***切片AER_bad 检测结果。***切片AER_bad 检测结果。***切片AER_bad 检测结果。***切片AER_bad 检测结果。
-        #
-		# TODO: ***切片miss_Ped(FN) 检测结果。 ***切片miss_Ped(FN) 检测结果。 ***切片miss_Ped(FN) 检测结果。 ***切片miss_Ped(FN) 检测结果。
+
 		# TODO: ***切片miss_Ped(FN) 检测结果。 ***切片miss_Ped(FN) 检测结果。 ***切片miss_Ped(FN) 检测结果。 ***切片miss_Ped(FN) 检测结果。
 		if image_id in annos_miss_Ped_Dis:
 			annos_FN = annos_miss_Ped_Dis[image_id]
@@ -1230,9 +1184,7 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 							print('error overlap = %.1f%%' % ov * 100)
 
 				# TODO:***切片显示FN。***切片显示FN。***切片显示FN。***切片显示FN。***切片显示FN。***切片显示FN。
-				# TODO:***切片显示FN。***切片显示FN。***切片显示FN。***切片显示FN。***切片显示FN。***切片显示FN。
 				if ovmax > 0.1:
-					dis_dt = dt_match_box['Dis']
 					b = dt_match_box['bbox']
 					left, top, right, bottom = b[0], b[1], b[2], b[3]
 					'''annos_GT =[{'occluded': None, 'difficult': None, 'bbox': [453, 207, 30, 54], 'id': 1000007, 'category_id': 4, 'image_id': 1000043, 'pose_id': 5, 'tracking_id': 1000000, 'ignore': 1, 'area': 1620, 'truncated': False},
@@ -1253,12 +1205,6 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 									  outline=color_FP[0], width=width_line_slice)
 					draw_FN.rectangle([int(scale_resize * (x1 - x1_slice)), int(scale_resize * (y1 - y1_slice)), int(scale_resize * (x2 - x1_slice)), int(scale_resize * (y2 - y1_slice))],
 									  outline=color_GT[0], width=width_line_slice+1)
-
-					# label = '%.1fm' % dis_dt
-					# font_slice = ImageFont.truetype('arial.ttf', size=size_font_slice)
-					# label_size = draw_FN.textsize(label, font_slice)
-					# text_origin = np.array([int(0.5 * w_resize - 0.5 * label_size[0]), 2])
-					# draw_FN.text(text_origin, label, fill=color_FP[1], font=font_slice)
 
 					label = '%.1f%%' % (100.0 * ovmax)
 					font_slice = ImageFont.truetype('arial.ttf', size=size_font_slice)
@@ -1338,9 +1284,7 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 			b = DT['bbox']
 			left, top, right, bottom = int(b[0]), int(b[1]), int(b[2]), int(b[3])
 			h_box = bottom - top
-			class_name = DT['class_name']
 			conf = 100 * float(DT['confidence'])
-			# label = '%s%d%%' % (class_name, conf)
 			label = 'p%d%%' % (conf)
 
 			distance = round(float(DT['Dis']), 1)
@@ -1348,21 +1292,10 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 
 			color_cls = colors['DT']
 			draw.rectangle([left, top, right, bottom], outline=color_cls[0], width=width_line_image)  # 淡红色单框：缩放到resized图上标记框
-			# TODO: ***  只显示预测框及预测概率。***  只显示预测框及预测概率。***  只显示预测框及预测概率。
-			# TODO: ***  只显示预测框及预测概率。***  只显示预测框及预测概率。***  只显示预测框及预测概率。
-			# font_predict = ImageFont.truetype('arial.ttf', size=15)
-			# label = 'P%.0f%%' % (conf)
-			# label_size = draw.textsize(label, font_predict)
-			# text_origin = np.array([left+2, bottom - label_size[1]-2])
-			# # draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)], fill=(255, 255, 255), width=width_line_image)
-			# draw.text(text_origin, label, fill=color_cls[1], font=font_predict)
-			# TODO: ***  只显示预测框及预测概率。***  只显示预测框及预测概率。***  只显示预测框及预测概率。
 
 			# TODO: *** 有序显示标记。*** 有序显示标记。*** 有序显示标记。*** 有序显示标记。*** 有序显示标记。*** 有序显示标记。*** 有序显示标记。
 			draw, Doted_text = draw_tags_orderly(draw, label, Doted_text, color_cls, left, right, top, bottom, h_box, edge_kept=edge_kept)
-		# TODO:***检测结果。***检测结果。***检测结果。***检测结果。***检测结果。***检测结果。***检测结果。***检测结果。***检测结果。***检测结果。
 
-		# TODO:***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。
 		# TODO:***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。***显示GT标记。
 		h_box = np.array([anno['bbox'][3] for anno in annos_GT])
 		h_box_index = np.argsort(-h_box, axis=0)# TODO: ***对标记索引按标记框高度进行排序。***对标记索引按标记框高度进行排序。***对标记索引按标记框高度进行排序。
@@ -1372,7 +1305,6 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 			cat = cocoGt.loadCats(ids=anno['category_id'])[0]  # cat={'name': 'pedestrian', 'id': 1}
 			class_name = cat['name']
 			b = anno['bbox']
-			# TODO: ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。
 			# TODO: ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。 ***将标记写入记事本。
 			x1, y1, x2, y2 = b[0] + 1, b[1] + 1, b[0] + b[2] + 1, b[1] + b[3] + 1
 			if anno['Dif']:
@@ -1395,20 +1327,13 @@ def visulize_FP_FN_bad_ER(imgs_data, dt_data_plot, imgs_dt_show_dir, annos_FP_Di
 			area_bbox = b[2] * b[3]
 			h_box = int(b[3])
 			label = class_name
-			# label = label
 			vis_box_exist = False
-			# if class_name in ['Ped', 'ped', 'Pedestrian', 'pedestrian', 'Bic', 'Mot', 'Peo']:
 			if class_name in ['Ped', 'ped', 'Pedestrian', 'pedestrian', 'Bic', 'Mot']:
 				if anno['Age'] == 'Child':
 					label = label + ':Child'
 
 				distance = float(anno['Dis'])
 				if class_name in ['Ped', 'ped', 'Pedestrian', 'pedestrian']:
-					# height_from_distance = round(Hf / distance, 1)
-					# height_from_distance_abs_error = abs(height_from_distance - h_box)
-					# if height_from_distance_abs_error > 40 + 1000 / distance:
-					# 	distance_from_height = int(Hf / h_box)  # TODO: 将像素高度直接估算为距离。
-					# 	label = label + '\nd*%d' % distance_from_height
 					if distance <= 0 or distance == 100:
 						distance_from_height = round(Hf / h_box, 1)
 						# label = label + ':dh*%.1f' % distance_from_height
@@ -1467,94 +1392,94 @@ if __name__ == '__main__':  # 在此__name__如何得来？？？
 		# TODO: ***计算MissRate_FPPI曲线。 ***计算MissRate_FPPI曲线。 ***计算MissRate_FPPI曲线。 ***计算MissRate_FPPI曲线。 ***计算MissRate_FPPI曲线。
 		cfg.Occ_threshold = 0.35
 		cfg.Dis_threshold = 80
-		if imageset == 'val':
+		if subset == 'val':
 			cfg.annos_file = cfg.val_file
-			detectResults_Path = os.path.join(Detection_results_dir, 'DtResults_NIRPed_%s.json' % (imageset))
-		elif imageset == 'test':
-			detectResults_Path = os.path.join(Detection_results_dir, 'DtResults_NIRPed_%s.json' % (imageset))
+			detectResults_Path = os.path.join(Detection_results_dir, 'DtResults_%s.json' % (subset))
+		elif subset == 'test':
+			detectResults_Path = os.path.join(Detection_results_dir, 'DtResults_%s.json' % (subset))
 			cfg.annos_file = cfg.test_file
 
 		if not os.path.exists(detectResults_Path): # print('The detectResults_Path is not exist:{}'.format(detectResults_Path))
 			messages = 'The detectResults_Path is not exist:{}'.format(detectResults_Path)
 			error(messages)
-		print('Start to evaluate NIRPed_{}...............................................'.format(imageset))
+		print('Start to evaluate NIRPed_{}...............................................'.format(subset))
 		MR_FPPI_dis_max_dic, MR_FPPI_dis_seg_dic, PR_dis_max_dic, PR_dis_seg_dic, AE_dtp_seg_dic, AE_dtp_max_dic, \
 		AE_DE_seg_dic, AE_DE_max_dic, AER_dtp_seg_dic, AER_dtp_max_dic, AER_DE_seg_dic, AER_DE_max_dic, \
 		annos_AER_bad, annos_FN, annos_FP = MR_FPPI_PR_Calculate(detectResults_Path)
 
 		#TODO: ***计算MissRate_FPPI曲线。 ***计算MissRate_FPPI曲线。 ***计算MissRate_FPPI曲线。 ***计算MissRate_FPPI曲线。 ***计算MissRate_FPPI曲线。
 		# TODO: ***MissRate_FPPI_dis_max_dic、score_threshold_dis_max_dic。
-		results_Path = os.path.join(Detection_results_dir, 'MR_FPPI_dis_max_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'MR_FPPI_dis_max_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(MR_FPPI_dis_max_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'MR_FPPI_dis_seg_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'MR_FPPI_dis_seg_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(MR_FPPI_dis_seg_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'PR_dis_max_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'PR_dis_max_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(PR_dis_max_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'PR_dis_seg_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'PR_dis_seg_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(PR_dis_seg_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'AE_dtp_seg_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'AE_dtp_seg_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(AE_dtp_seg_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'AE_dtp_max_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'AE_dtp_max_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(AE_dtp_max_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'AE_DE_seg_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'AE_DE_seg_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(AE_DE_seg_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'AE_DE_max_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'AE_DE_max_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(AE_DE_max_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'AER_dtp_seg_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'AER_dtp_seg_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(AER_dtp_seg_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'AER_dtp_max_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'AER_dtp_max_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(AER_dtp_max_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'AER_DE_seg_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'AER_DE_seg_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(AER_DE_seg_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'AER_DE_max_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'AER_DE_max_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(AER_DE_max_dic, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'annos_AER_bad_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'annos_AER_bad_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(annos_AER_bad, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'annos_FN_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'annos_FN_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(annos_FN, file_obj)
 		file_obj.close()
 
-		results_Path = os.path.join(Detection_results_dir, 'annos_FP_results_%s.json' % (imageset))
+		results_Path = os.path.join(Detection_results_dir, 'annos_FP_results_%s.json' % (subset))
 		file_obj = open(results_Path, 'w')
 		json.dump(annos_FP, file_obj)
 		file_obj.close()
@@ -1567,12 +1492,12 @@ if __name__ == '__main__':  # 在此__name__如何得来？？？
 		class_name = 'Ped'
 		cfg.Occ_threshold = 0.35
 		cfg.Dis_threshold = 80
-		if imageset == 'val':
+		if subset == 'val':
 			cfg.annos_file = cfg.val_file
-			detectResults_Path = os.path.join(Detection_results_dir, 'DtResults_NIRPed_%s.json' % (imageset))
-		elif imageset == 'test':
+			detectResults_Path = os.path.join(Detection_results_dir, 'DtResults_%s.json' % (subset))
+		elif subset == 'test':
 			cfg.annos_file = cfg.test_file
-			detectResults_Path = os.path.join(Detection_results_dir, 'DtResults_NIRPed_%s.json' % (imageset))
+			detectResults_Path = os.path.join(Detection_results_dir, 'DtResults_%s.json' % (subset))
 
 		if not os.path.exists(detectResults_Path): # print('The detectResults_Path is not exist:{}'.format(detectResults_Path))
 			messages = 'The detectResults_Path is not exist:{}'.format(detectResults_Path)
@@ -1589,16 +1514,15 @@ if __name__ == '__main__':  # 在此__name__如何得来？？？
 			print('Notion: can not find training dataset!')
 			sys.exit(0)  # 干净利落地退出系统
 
-		# pdb.set_trace()
-		annos_FP_results_Path = os.path.join(Detection_results_dir, 'annos_FP_results_%s.json' % (imageset))
+		annos_FP_results_Path = os.path.join(Detection_results_dir, 'annos_FP_results_%s.json' % (subset))
 		annos_FP_results = json.load(open(annos_FP_results_Path))
-		imgs_dt_show_dir = os.path.join(cfg.model_dir, "dt_results_%s_Visualization" % (imageset))
+		imgs_dt_show_dir = os.path.join(os.path.dirname(Detection_results_dir), "dt_results_%s_Visualization" % (subset))
 		if not os.path.exists(imgs_dt_show_dir):
 			os.makedirs(imgs_dt_show_dir)
 
-		annos_AER_bad_results_Path = os.path.join(Detection_results_dir, 'annos_AER_bad_results_%s.json' % (imageset))
+		annos_AER_bad_results_Path = os.path.join(Detection_results_dir, 'annos_AER_bad_results_%s.json' % (subset))
 		annos_AER_bad_results = json.load(open(annos_AER_bad_results_Path))
-		annos_miss_Ped_results_Path = os.path.join(Detection_results_dir, 'annos_FN_results_%s.json' % (imageset))
+		annos_miss_Ped_results_Path = os.path.join(Detection_results_dir, 'annos_FN_results_%s.json' % (subset))
 		annos_miss_Ped_results = json.load(open(annos_miss_Ped_results_Path))
 		score_threshold = 0.5
 
