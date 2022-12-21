@@ -12,23 +12,10 @@
 9. [参考资料 References](#References)
 
 ## 夜间行人及其距离联合检测数据集 NIRPed
-###1. A Summary of The Main Driving Scenes Pedestrian Datasets
-| dataset | year | cameras | resolution | time of day | #annotations |  MR^-2(%) |
-| :-----: | :-----: | :------: | :------: | :------: | :-----: | :-----: |
-| Caltech \[3] | 2009 | VIS | 640x480 | day | 289k | 6.5 \[6]
-| KAIST \[30] | 2015 | VIS+FLIR | 640x512 | day/night | 29k/29k | 36.8/35.5 \[29]
-| CityPersons \[8] | 2017 | VIS | 1024x490 | day | 35k | 12.8 \[8]
-| ECP \[7] | 2018 | VIS | **1920x1024** | day/night | 183k/35k | 7.4/18.6 \[7]
-| NightOwls \[28] | 2018 | VIS | 1024x640 | night | 55k | 14.3 \[6]
-| NIRPed | **2021** | **NIR** | 1280x720 | night | **146k** | **6.5**
-<br> The right col of the table gives the best results for the day/night log-average miss rate of pedestrian detection on each datasets.
-
+ ![img.png](Table1.png)<br> 
 
 ###2. 数据收集设备
-![img_5.png](img_5.png)<br> 
-1. Magnets, 2. NIR lamp, 3. LiDAR, 4. Ring, 5. Narrowband NIR camera, 6-7. Jigs.<br> 
-Fig. 1.  Data joint collection setup. Four magnets are used to fix the setup on the car’s top. The ring is used to fix the camera to the top of the LiDAR. Jigs 6 and 7 are used to fine-tune and fix the angle of the camera in the vertical and horizontal directions, which is convenient to match LiDAR’s field of view.
-![img_6.png](img_6.png)
+ ![img.png](Figure1.png)<br> 
 
 ###3. 数据特性
 ###4. 
@@ -36,6 +23,7 @@ Fig. 1.  Data joint collection setup. Four magnets are used to fix the setup on 
 
 
 ## 行人及其距离联合检测方法
+ ![img.png](Figure7.png)<br> 
 
 ## 性能情况
 | train dataset | weight name | test dataset | input image size | MR-2 | AP@0.5 |  MAER |
