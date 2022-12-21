@@ -10,7 +10,7 @@
 6. [训练步骤 How2train](#训练步骤)
 7. [评估步骤 How2eval](#评估步骤)
 8. [参考资料 Reference](#Reference)
-
+! [Image text](https://github.com/Daixb2022/NIRPed/blob/JointDetector/data/show/Data20190326191702_266360.png)
 ## Top News
 **`2022-12`**:**首次提交，支持行人及其距离联合检测、忽略区域自动剔除、训练样本自动选择。**   
 
