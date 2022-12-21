@@ -1,13 +1,15 @@
 import pdb
-import os,sys
+import os, sys
 import numpy as np
 from keras_frcnn.coco import COCO
 import json
 np.set_printoptions(precision=6, threshold=np.inf, edgeitems=10, linewidth=260, suppress=True)
+from keras_frcnn import config
+cfg = config.Config()  # 实例化config.py文件中的类Config，存储到变量cfg中
 
 def get_data(cfg):
-	if os.path.exists(cfg.train_file):
-		file_obj = open(cfg.train_file, 'r')
+	if os.path.exists(cfg.train_anno):
+		file_obj = open(cfg.train_anno, 'r')
 		imgs_data = json.load(file_obj)
 		file_obj.close()
 	else:
@@ -21,7 +23,7 @@ def get_data(cfg):
 	else:
 		train_loss = []
 
-	cocoGt = COCO(cfg.train_file)
+	cocoGt = COCO(cfg.train_anno)
 	images = imgs_data['images']
 	imageset = 'train'
 
@@ -65,7 +67,8 @@ def get_data(cfg):
 
 		img_name = os.path.basename(img['file_name']) #Data20200710195000_082906N850F12
 
-		img_path = os.path.join('E:\\Datasets\\NIRPed2021\\NIRPed\\images\\{}\\{}'.format(imageset, img_name))
+		# img_path = os.path.join('E:\\Datasets\\NIRPed2021\\NIRPed\\images\\{}\\{}'.format(imageset, img_name))
+		img_path = os.path.join(cfg.train_img_dir, img_name)
 
 		img_data = {'filepath': img_path, 'height': img['height'], 'width': img['width'], 'daytime': img['daytime'], 'imageset': imageset}
 		img_data['bboxes'] = bboxes
