@@ -20,12 +20,9 @@
 | CityPersons \[8] | 2017 | VIS | 1024x490 | day | 35k | 12.8 \[8]
 | ECP \[7] | 2018 | VIS | **1920x1024** | day/night | 183k/35k | 7.4/18.6 \[7]
 | NightOwls \[28] | 2018 | VIS | 1024x640 | night | 55k | 14.3 \[6]
-| NIRPed | **2021** | **NIR** | 1280x720 | night | **146k** | **6.5**|
-The right col of the table gives the best results for the day/night log-average miss rate of pedestrian detection on each datasets.
+| NIRPed | **2021** | **NIR** | 1280x720 | night | **146k** | **6.5**
+<br> The right col of the table gives the best results for the day/night log-average miss rate of pedestrian detection on each datasets.
 
-![img_2.png](img_2.png) <br> 
-(a)KAIST (VIS) [30]      (b) ECP (VIS) [7]       (c) NightOwls (VIS) [28]       (d) NIRPed (NIR)<br> 
-Fig. S1.  Imaging Comparison using VIS and NIR cameras in nighttime driving scenes. Figures (a)–(d) are from KAIST, ECP, NightOwls, and NIRPed, respectively. These images are scaled to have the same height while maintaining the original aspect ratio.
 
 ###2. 数据收集设备
 ![img_5.png](img_5.png)<br> 
