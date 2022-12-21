@@ -71,10 +71,14 @@ class Config:
         # TODO: this field is set to simple_label txt, which in very simple format like:此字段设置为simple_label.txt，其格式非常简单，如：
         # TODO: /path/image_2/000000.png,712.40,143.00,810.73,307.92,Pedestrian, see kitti_simple_label.txt for detail
 
-        self.train_file = r'.\data\miniNIRPed\labels\train_mini.json'
-        self.val_file = r'.\data\miniNIRPed\labels\val_mini.json'
-        self.test_file = r'.\data\miniNIRPed\labels\test_mini.json'
-        self.show_imgs_directory = r'.\data\Show'
+        self.train_img_dir = './data/NIRPed/images/train'
+        self.val_img_dir = './data/NIRPed/images/val'
+        self.test_img_dir = './data/NIRPed/images/test'
+
+        self.train_anno = './data/NIRPed/labels/train.json'
+        self.val_anno = './data/NIRPed/labels/val.json'
+        self.test_anno = './data/NIRPed/labels/test.json'
+        self.show_imgs_directory = './data/Show'
 
         self.training_loss_file = os.path.join(self.model_dir, 'Training_loss.json')
         self.Loss0 = 0.05  # 训练总损失目标值
