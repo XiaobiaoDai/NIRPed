@@ -26,9 +26,9 @@ I. Introduction<br>
 ---
 In this study, a narrowband near-infrared (NIR) imaging system is developed, combined with LiDAR to obtain nighttime driving scene images and distance information of pedestrian targets in the images, and constructed a large-scale nighttime pedestrian dataset containing distance attributes. Unlike VIS, NIR is difficult to detect by human eyes, so it does not affect other road users and is not restricted by traffic laws; narrowband NIR is outside the VIS spectral band and its imaging can greatly weaken the interference of uneven VIS in nighttime driving scenes. With the help of supplementary light, narrowband NIR imaging quality will be significantly improved. Based on Faster-RCNN, a method to realize pedestrian and its distance joint detection using monocular images is also proposed herein. Compared with binocular and traditional monocular DD methods, our method eliminates any restrictions of calibration, assumptions and other conditions, and unifies PD and DD into a single deep CNN network driven by big data, thus it is more robust and can be applied in more complex scenes. In the actual application, the system requires only one camera to collect monocular images to realize joint detection, which will greatly reduce the cost of usage and the complexity of data processing.<br> 
 **In summary, our contributions are threefold:**<br> 
-(1) A large-scale, competitive and robust narrowband near-infrared nighttime pedestrian dataset containing target distances was constructed as a powerful supplement to NightOwls.<br> 
-(2) Using LiDAR to obtain the precise distances to support distance detection and fine-grained model optimization.<br> 
-(3) Extending the Faster-RCNN to achieve joint detection of pedestrian and its distance in one step.<br>
+**(1) A large-scale, competitive and robust narrowband near- infrared nighttime pedestrian dataset containing target distances was constructed as a powerful supplement to NightOwls.**<br> 
+**(2) Using LiDAR to obtain the precise distances to support distance detection and fine-grained model optimization.**<br> 
+**(3) Extending the Faster-RCNN to achieve joint detection of pedestrian and its distance in one step.**<br>
  ![img.png](./Fig&Tab/Table1.png)<br> 
  ![img.png](./Fig&Tab/FigureS1.png)<br> 
 
@@ -100,7 +100,7 @@ NIRPed数据集下载地址如下，里面已经包括了训练集、验证集�
 
 III. How2train
 ---
-a、Training on NIRPed
+A、Training on NIRPed
 ---
 1. 数据集的准备
    **训练前需要下载好NIRPed的数据集，解压后png图像放在./data/NIRPed/images/train; coco格式的json注释路径为./data/NIRPed/labels/train.json。**
@@ -112,7 +112,7 @@ a、Training on NIRPed
    config.py的默认参数用于训练NIRPed数据集，直接运行train_JointDetector.py即可开始训练；
    完成修改后就可以运行Test_JointDetector.py进行检测了。   
 
-b、Training on your own dataset
+B、Training on your own dataset
 ---
 1. 数据集的准备 
    **本文使用COCO格式进行训练，训练前需要自己制作好COCO格式数据集，** 
@@ -128,7 +128,7 @@ b、Training on your own dataset
 
 IV. How2predict
 ---
-a、Use our weights
+A、Use our weights
 ---
 1. 下载完库后解压，在中南云盘下载NIRPed_weights_resnet50.h，放入./model_data文件夹中。 
 2. 训练结果预测需要用到Test_JointDetector.py文件。首先需要去Test_JointDetector.py里面修改model_path和results_dir;
@@ -138,7 +138,7 @@ a、Use our weights
    **config.py里面的参数self.val_img_dir或self.test_img_dir，指向训练图像存放路径./data/NIRPed/images/val或./data/NIRPed/images/test**
 3. 完成修改后就可以运行Test_JointDetector.py进行检测了。
 
-b、Use your own weights
+B、Use your own weights
 ---
 1. 按照训练步骤训练,优化自己的模型权重。
 2. 在config.py文件里面，修改model_path、val_img_dir(test_img_dir)、val_anno(test_anno)对应训练好的文件，以及class_mapping对应model_path的分类；
@@ -150,13 +150,13 @@ b、Use your own weights
 
 V. How2eval
 ---
-a、Evaluation on NIRPed validation subset
+A、Evaluation on NIRPed validation subset
 ---
 1. 本文使用COCO格式进行评估。NIRPed已经划分好了验证集和测试集及其注释；
 2. 在config.py里面修改model_path。**model_path指向训练好的权值文件，在./model_data文件夹里；**  
 3. 运行Evaluate_JointDetector.py即可获得评估结果，评估结果会保存在./results_NIRPed文件夹中。
 
-b、Evaluation on your own dataset
+B、Evaluation on your own dataset
 ---
 1. 本文使用COCO格式进行评估；  
 2. 划分训练集、验证集和测试集，制作各子集COCO格式json文件；
