@@ -28,7 +28,7 @@ I. Introduction<br>
  ![img.png](./Fig&Tab/FigureS1.png)<br> 
 
 **This work‘s contributions are threefold:**<br> 
-(1) A large-scale, competitive and robust narrowband near- infrared nighttime pedestrian dataset containing target distances was constructed as a powerful supplement to NightOwls.<br> 
+(1) A large-scale, competitive and robust narrowband near-infrared nighttime pedestrian dataset containing target distances was constructed as a powerful supplement to NightOwls.<br> 
 (2) Using LiDAR to obtain the precise distances to support distance detection and fine-grained model optimization.<br> 
 (3) Extending the Faster-RCNN to achieve joint detection of pedestrian and its distance in one step.<br>
 
