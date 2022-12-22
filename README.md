@@ -22,8 +22,8 @@
 **`2022-12`**:**首次提交，支持行人及其距离联合检测、忽略区域自动剔除、训练样本自动选择。**   
 
 
-## 行人及其距离联合检测方法
-! [img.png](Figure7.png)<br> 
+## 行人及其距离联合检测方法<br>
+![img.png](Figure7.png)<br> 
 
 ## 性能情况
 | train dataset | weight name | test dataset | input image size | MR-2 | AP@0.5 |  MAER |
