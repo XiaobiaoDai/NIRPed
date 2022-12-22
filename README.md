@@ -24,8 +24,8 @@ II. [Papers](#参考网址)<br>
 --- 
 I. Introduction<br> 
 ---
- ![img.png](Table1.png)<br> 
- ![img.png](FigureS01.png)<br> 
+ ![img.png](./Fig&Tab/Table1.png)<br> 
+ ![img.png](./Fig&Tab/FigureS1.png)<br> 
 
 **This work‘s contributions are threefold:**<br> 
 (1) A large-scale, competitive and robust narrowband near- infrared nighttime pedestrian dataset containing target distances was constructed as a powerful supplement to NightOwls.<br> 
@@ -36,27 +36,27 @@ II.  Narrowband NIR Nighttime Pedestrian and Its Distance Joint Detection Datase
 ---
 A. Data Collection Device<br> 
 ---
- ![img.png](Figure01.png)<br> 
+ ![img.png](./Fig&Tab/Figure1.png)<br> 
 
 B. Data Collection and Target Distance Obtaining<br> 
 ---
- ![img.png](Figure2.png)<br> 
- ![img.png](Figure3.png)<br> 
- ![img.png](Figure4.png)<br> 
- ![img.png](FigureS2.png)<br> 
+ ![img.png](./Fig&Tab/Figure2.png)<br> 
+ ![img.png](./Fig&Tab/Figure3.png)<br> 
+ ![img.png](./Fig&Tab/Figure4.png)<br> 
+ ![img.png](./Fig&Tab/FigureS2.png)<br> 
 
 C. Dataset Construction<br> 
 ---
-![img.png](Table3.png)<br> 
+![img.png](./Fig&Tab/Table3.png)<br> 
 
 D. Statistics of Dataset Attributes<br> 
 ---
-![img.png](Table4.png)<br> 
-![img.png](Figure5_6.png)<br> 
+![img.png](./Fig&Tab/Table4.png)<br> 
+![img.png](./Fig&Tab/Figure5_6.png)<br> 
 
 III.  Faster-RCNN-Based Joint Detection Method for Pedestrian and Its Distance Detection<br> 
 ---
- ![img.png](Figure07.png)<br> 
+ ![img.png](./Fig&Tab/Figure7.png)<br> 
 
 IV. Performance<br> 
 ---
@@ -68,14 +68,14 @@ IV. Performance<br>
 | KAIST | [KAIST_weights_resnet50.h](https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED) | KAIST-test | 640*256 | 37.3 | 69.8 | -
 <br> 
 
- ![img.png](Figure8.png)<br> 
- ![img.png](Figure9.png)<br> 
- ![img.png](Figure10.png)<br> 
- ![img.png](Table6.png)<br> 
+ ![img.png](./Fig&Tab/Figure8.png)<br> 
+ ![img.png](./Fig&Tab/Figure9.png)<br> 
+ ![img.png](./Fig&Tab/Figure10.png)<br> 
+ ![img.png](./Fig&Tab/Table6.png)<br> 
 
 V. Conclusion
 ---
-In order to cope with the huge challenges of nighttime driving scenes, we selected a narrowband near-infrared imaging system to collect high-quality images and matched LiADR to precisely obtain the distance information in the imaging area. We further constructed a nighttime pedestrian and its distance joint detection dataset NIRPed, which contains 142k narrowband near-infrared images and 236k annotations of pedestrian and other person- related objects. Among them, the pedestrian annotation amounts to 146k, which is 3 times of NightOwls—the largest visible-light nighttime pedestrian dataset at present. For achieving pedestrian detection and distance detection tasks synchronously, we proposed a joint detection method based on Faster-RCNN and monocular images. Our method has been proven to be advanta- geous in dealing with complex nighttime driving scenes, which will hopefully contribute to the PPS to effectively realize nighttime pedestrian detection and distance detection at low cost.
+**In order to cope with the huge challenges of nighttime driving scenes, we selected a narrowband near-infrared imaging system to collect high-quality images and matched LiADR to precisely obtain the distance information in the imaging area. We further constructed a nighttime pedestrian and its distance joint detection dataset NIRPed, which contains 142k narrowband near-infrared images and 236k annotations of pedestrian and other person- related objects. Among them, the pedestrian annotation amounts to 146k, which is 3 times of NightOwls—the largest visible-light nighttime pedestrian dataset at present. For achieving pedestrian detection and distance detection tasks synchronously, we proposed a joint detection method based on Faster-RCNN and monocular images. Our method has been proven to be advantageous in dealing with complex nighttime driving scenes, which will hopefully contribute to the PPS to effectively realize nighttime pedestrian detection and distance detection at low cost.**
 <br> 
 
 二. Implementation based on Tensorflow & Keras
@@ -140,7 +140,7 @@ a、Use our weights
 
 b、Use your own weights
 ---
-1. 按照训练步骤训练。
+1. 按照训练步骤训练,优化自己的模型权重。
 2. 在config.py文件里面，修改model_path、val_img_dir(test_img_dir)、val_anno(test_anno)对应训练好的文件，以及class_mapping对应model_path的分类；
    **model_path对应./model_data文件夹下面的权值文件;**  
    **val_anno(test_anno)对应./data/dataset/labels文件夹下面的注释文件。**
