@@ -33,7 +33,7 @@ I. Introduction<br>
 
 II.  Narrowband NIR Nighttime Pedestrian and Its Distance Joint Detection Dataset
 ---
-#A. Data Collection Device<br> 
+A. Data Collection Device<br> 
  ![img.png](Figure01.png)<br> 
 
 #B. Data Collection and Target Distance Obtaining<br> 
@@ -183,7 +183,7 @@ II. papers
 [20]	M. Rezaei et al., "Robust Vehicle Detection and Distance Estimation Under Challenging Lighting Conditions," IEEE TITS, vol. 16, no.5, pp. 2723-2743, Mar. 2015.<br> 
 [21]	X. Dai et al., “Multi-task faster R-CNN for nighttime pedestrian detection and distance estimation,” Infrared Physics & Technology, vol. 115, p. 103694, Jun. 2021. <br> 
 [22]	X. Dai et al., “Near infrared nighttime road pedestrian recognition based on convolutional neural network,” Infrared Physics & Technology, vol. 97, pp. 25-32, Mar. 2019. <br> 
-[23]	L. Zhang et al. (2019). “The Cross-Modality Disparity Problem in Multispectral Pedestrian Detection.” [Online]. Available: https://arXiv. org/abs/1901.02645 <br> 
+[23]	L. Zhang et al. (2019). “The Cross-Modality Disparity Problem in Multispectral Pedestrian Detection.” [Online]. Available: https://arXiv.org/abs/1901.02645 <br> 
 [24]	C. Li et al., “Illumination-aware faster R-CNN for robust multispectral pedestrian detection,” Pattern Recognit., vol. 85, pp. 161-171, Jan. 2019. <br> 
 [25]	S. K. Biswas et al., “Linear support tensor machine with LSK channels: pedestrian detection in thermal infrared images,” IEEE TIP, vol. 26, no.9, pp. 4229-4242, May 2017. <br> 
 [26]	L. Lu et al., “Infrared Pedestrian Segmentation Through Background Likelihood and Object-Biased Saliency,” IEEE TITS, vol. 19, no.9, pp. 2826-2844, Nov. 2017. <br> 
