@@ -40,8 +40,6 @@ A. Data Collection Device<br>
 
 B. Data Collection and Target Distance Obtaining<br> 
 ---
- ![img.png](./Fig&Tab/Figure2.png)<br> 
- ![img.png](./Fig&Tab/Figure3.png)<br> 
  ![img.png](./Fig&Tab/Figure4.png)<br> 
  ![img.png](./Fig&Tab/FigureS2.png)<br> 
 
@@ -51,8 +49,7 @@ C. Dataset Construction<br>
 
 D. Statistics of Dataset Attributes<br> 
 ---
-![img.png](./Fig&Tab/Table4.png)<br> 
-![img.png](./Fig&Tab/Figure5_6.png)<br> 
+![img.png](./Fig&Tab/Table4.png)<br>
 
 III.  Faster-RCNN-Based Joint Detection Method for Pedestrian and Its Distance Detection<br> 
 ---
@@ -68,9 +65,6 @@ IV. Performance<br>
 | KAIST | [KAIST_weights_resnet50.h](https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED) | KAIST-test | 640*256 | 37.3 | 69.8 | -
 <br> 
 
- ![img.png](./Fig&Tab/Figure8.png)<br> 
- ![img.png](./Fig&Tab/Figure9.png)<br> 
- ![img.png](./Fig&Tab/Figure10.png)<br> 
  ![img.png](./Fig&Tab/Table6.png)<br> 
 
 V. Conclusion
