@@ -34,9 +34,11 @@ I. Introduction<br>
 II.  Narrowband NIR Nighttime Pedestrian and Its Distance Joint Detection Dataset
 ---
 A. Data Collection Device<br> 
+---
  ![img.png](Figure01.png)<br> 
 
-#B. Data Collection and Target Distance Obtaining<br> 
+B. Data Collection and Target Distance Obtaining<br> 
+---
  ![img.png](Figure2.png)<br> 
  ![img.png](Figure3.png)<br> 
  ![img.png](Figure4.png)<br> 
