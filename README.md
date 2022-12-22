@@ -29,31 +29,31 @@ In this study, a narrowband near-infrared (NIR) imaging system is developed, com
 **(1) A large-scale, competitive and robust narrowband near- infrared nighttime pedestrian dataset containing target distances was constructed as a powerful supplement to NightOwls.**<br> 
 **(2) Using LiDAR to obtain the precise distances to support distance detection and fine-grained model optimization.**<br> 
 **(3) Extending the Faster-RCNN to achieve joint detection of pedestrian and its distance in one step.**<br>
- ![img.png](./Fig&Tab/Table1.png)<br> 
- ![img.png](./Fig&Tab/FigureS1.png)<br> 
+ ![img.png](Table1.png)<br> 
+ ![img.png](FigureS1.png)<br> 
 
 II.  Narrowband NIR Nighttime Pedestrian and Its Distance Joint Detection Dataset
 ---
 A. Data Collection Device<br> 
 ---
- ![img.png](./Fig&Tab/Figure1.png)<br> 
+ ![img.png](Figure1.png)<br> 
 
 B. Data Collection and Target Distance Obtaining<br> 
 ---
- ![img.png](./Fig&Tab/Figure4.png)<br> 
- ![img.png](./Fig&Tab/FigureS2.png)<br> 
+ ![img.png](Figure4.png)<br> 
+ ![img.png](FigureS2.png)<br> 
 
 C. Dataset Construction<br> 
 ---
-![img.png](./Fig&Tab/Table3.png)<br> 
+![img.png](Table3.png)<br> 
 
 D. Statistics of Dataset Attributes<br> 
 ---
-![img.png](./Fig&Tab/Table4.png)<br>
+![img.png](Table4.png)<br>
 
 III.  Faster-RCNN-Based Joint Detection Method for Pedestrian and Its Distance Detection<br> 
 ---
- ![img.png](./Fig&Tab/Figure7.png)<br> 
+ ![img.png](Figure7.png)<br> 
 
 IV. Performance<br> 
 ---
@@ -65,7 +65,7 @@ IV. Performance<br>
 | KAIST | [KAIST_weights_resnet50.h](https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED) | KAIST-test | 640*256 | 37.3 | 69.8 | -
 <br> 
 
- ![img.png](./Fig&Tab/Table6.png)<br> 
+ ![img.png](Table6.png)<br> 
 
 V. Conclusion
 ---
