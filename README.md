@@ -21,38 +21,40 @@ II. [Papers](#参考网址)<br>
 
 一. Paper Introduction
 --- 
-
 I. Introduction
 ---
  ![img.png](Table1.png)<br> 
  ![img.png](FigureS01.png)<br> 
 
-This work‘s contributions are threefold:<br> 
+**This work‘s contributions are threefold:**<br> 
 (1) A large-scale, competitive and robust narrowband near- infrared nighttime pedestrian dataset containing target distances was constructed as a powerful supplement to NightOwls.<br> 
 (2) Using LiDAR to obtain the precise distances to support distance detection and fine-grained model optimization.<br> 
 (3) Extending the Faster-RCNN to achieve joint detection of pedestrian and its distance in one step.<br> 
 
-#II.  Narrowband NIR Nighttime Pedestrian and Its Distance Joint Detection Dataset
-##A. Data Collection Device
+II.  Narrowband NIR Nighttime Pedestrian and Its Distance Joint Detection Dataset
+---
+#A. Data Collection Device
  ![img.png](Figure01.png)<br> 
 
-##B. Data Collection and Target Distance Obtaining
+#B. Data Collection and Target Distance Obtaining
  ![img.png](Figure2.png)<br> 
  ![img.png](Figure3.png)<br> 
  ![img.png](Figure4.png)<br> 
  ![img.png](FigureS2.png)<br> 
 
-##C. Dataset Construction
+#C. Dataset Construction
 ![img.png](Table3.png)<br> 
 
-##D. Statistics of Dataset Attributes
+#D. Statistics of Dataset Attributes
 ![img.png](Table4.png)<br> 
 ![img.png](Figure5_6.png)<br> 
 
-## III.  Faster-RCNN-Based Joint Detection Method for Pedestrian and Its Distance Detection
+III.  Faster-RCNN-Based Joint Detection Method for Pedestrian and Its Distance Detection
+---
  ![img.png](Figure07.png)<br> 
 
-##IV. Performance
+IV. Performance
+---
 | train dataset | weight name | test dataset | input image size | MR-2 | AP@0.5 |  MAER |
 | :-----: | :-----: | :------: | :------: | :------: | :-----: | :-----: |
 | NIRPed | [NIRPed_weights_resnet50.h](https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED) | NIRPed-val | 640*256 | **6.5** | **92.4** | **5.46**
@@ -65,19 +67,24 @@ This work‘s contributions are threefold:<br>
  ![img.png](Figure9.png)<br> 
  ![img.png](Figure10.png)<br> 
  ![img.png](Table6.png)<br> 
-##V. Conclusion
+
+V. Conclusion
+---
 In order to cope with the huge challenges of nighttime driving scenes, we selected a narrowband near-infrared imaging system to collect high-quality images and matched LiADR to precisely obtain the distance information in the imaging area. We further constructed a nighttime pedestrian and its distance joint detection dataset NIRPed, which contains 142k narrowband near-infrared images and 236k annotations of pedestrian and other person- related objects. Among them, the pedestrian annotation amounts to 146k, which is 3 times of NightOwls—the largest visible-light nighttime pedestrian dataset at present. For achieving pedestrian detection and distance detection tasks synchronously, we proposed a joint detection method based on Faster-RCNN and monocular images. Our method has been proven to be advanta- geous in dealing with complex nighttime driving scenes, which will hopefully contribute to the PPS to effectively realize nighttime pedestrian detection and distance detection at low cost.
 <br> 
 
 二. Implementation based on Tensorflow & Keras
 ---
 
-##I. Environment
+I. Environment
+---
 pythonn == 3.9 <br>
 tensorflow-gpu == 2.9.0 <br>
 keras == 2.9.0 <br>
 Please refer to requirements.txt for more configuration.  <br>
-##II. Download
+
+II. Download
+---
 训练所需的NIRPed_weights_resnet50.h或者NightOwls_weights_resnet50.h以及主干的网络权重可以在百度云下载。  
 NIRPed_weights_resnet50.h是resnet50为主干特征提取网络用到的;  
 NightOwls_weights_resnet50.h是resnet50为主干特征提取网络用到的;  
@@ -86,8 +93,9 @@ NightOwls_weights_resnet50.h是resnet50为主干特征提取网络用到的;
 NIRPed数据集下载地址如下，里面已经包括了训练集、验证集、测试集，无需再次划分：  
 链接:https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED      
 
-##III. How2train
-### a、Training on NIRPed
+III. How2train
+---
+#a、Training on NIRPed
 1. 数据集的准备
    **训练前需要下载好NIRPed的数据集，解压后png图像放在./data/NIRPed/images/train; coco格式的json注释路径为./data/NIRPed/labels/train.json。**
 2. 数据集的处理 
@@ -98,7 +106,7 @@ NIRPed数据集下载地址如下，里面已经包括了训练集、验证集�
    config.py的默认参数用于训练NIRPed数据集，直接运行train_JointDetector.py即可开始训练；
    完成修改后就可以运行Test_JointDetector.py进行检测了。   
 
-### b、Training on your own dataset
+#b、Training on your own dataset
 1. 数据集的准备 
    **本文使用COCO格式进行训练，训练前需要自己制作好COCO格式数据集，** 
    训练前将标签文件train.json放在./data/NIRPed/labels文件夹中；
@@ -111,8 +119,9 @@ NIRPed数据集下载地址如下，里面已经包括了训练集、验证集�
    **训练的参数较多，均在config.py中，大家可以在下载库后仔细看注释,做相应的修改。**
    修改完后就可以运行train_JointDetector.py开始训练了，在训练一个iteration后，权值会生成在./model_data文件夹中。  
 
-##IV. How2predict
-### a、Use our weights
+IV. How2predict
+---
+#a、Use our weights
 1. 下载完库后解压，在中南云盘下载NIRPed_weights_resnet50.h，放入./model_data文件夹中。 
 2. 训练结果预测需要用到Test_JointDetector.py文件。首先需要去Test_JointDetector.py里面修改model_path和results_dir;
    再修改config.py里面的参数self.val_img_dir或self.test_img_dir，指向预测图像存放路径。 
@@ -121,7 +130,7 @@ NIRPed数据集下载地址如下，里面已经包括了训练集、验证集�
    **config.py里面的参数self.val_img_dir或self.test_img_dir，指向训练图像存放路径./data/NIRPed/images/val或./data/NIRPed/images/test**
 3. 完成修改后就可以运行Test_JointDetector.py进行检测了。
 
-### b、Use your own weights
+#b、Use your own weights
 1. 按照训练步骤训练。
 2. 在config.py文件里面，修改model_path、val_img_dir(test_img_dir)、val_anno(test_anno)对应训练好的文件，以及class_mapping对应model_path的分类；
    **model_path对应./model_data文件夹下面的权值文件;**  
@@ -130,13 +139,14 @@ NIRPed数据集下载地址如下，里面已经包括了训练集、验证集�
    **score_threshold_cls取值较小，获得更多结果用于后续评估。**
 4. 运行Test_JointDetector.py进行检测。 
 
-##V. How2eval
-### a、Evaluation on NIRPed validation subset
+V. How2eval
+---
+#a、Evaluation on NIRPed validation subset
 1. 本文使用COCO格式进行评估。NIRPed已经划分好了验证集和测试集及其注释；
 2. 在config.py里面修改model_path。**model_path指向训练好的权值文件，在./model_data文件夹里；**  
 3. 运行Evaluate_JointDetector.py即可获得评估结果，评估结果会保存在./results_NIRPed文件夹中。
 
-### b、Evaluation on your own dataset
+#b、Evaluation on your own dataset
 1. 本文使用COCO格式进行评估；  
 2. 划分训练集、验证集和测试集，制作各子集COCO格式json文件；
 3. 在config.py里面修改model_path。**model_path指向训练好的权值文件，在./model_data文件夹里；**  
@@ -144,10 +154,13 @@ NIRPed数据集下载地址如下，里面已经包括了训练集、验证集�
 
 三. References
 ---
-###I. websites <br>
+I. websites
+---
 1. https://github.com/jinfagang/keras_frcnn <br>
 2. https://github.com/chenyuntc/simple-faster-rcnn-pytorch <br>
-###II. papers <br>
+
+II. papers
+---
 [1]	    WHO, “Global Status Report on Road Safety,” World Health Organization, Geneva, Switzerland, Rep. WH018, Jun. 17, 2018. <br> 
 [2]	    X. Zhang et al., “Deep Convolutional Neural Networks for All-Day Pedestrian Detection,” in Proc. ICISA, 2017, pp. 171-178. <br> 
 [3]	    P. Dollár et al., “Pedestrian detection: an evaluation of the state of the art,” IEEE TPAMI, vol. 34, no.4, pp. 743-761, Apr. 2012. <br> 
