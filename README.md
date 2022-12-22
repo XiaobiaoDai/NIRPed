@@ -18,7 +18,7 @@ V. [How2eval](#评估步骤)<br>
 
 三. [References](#参考资料)<br> 
 I. [Websites](#参考网址)<br> 
-II. [Papers](#参考网址)<br> 
+II. [Papers](#参考论文)<br> 
 
 一. Paper Introduction
 --- 
@@ -29,6 +29,7 @@ In this study, a narrowband near-infrared (NIR) imaging system is developed, com
 **(1) A large-scale, competitive and robust narrowband near- infrared nighttime pedestrian dataset containing target distances was constructed as a powerful supplement to NightOwls.**<br> 
 **(2) Using LiDAR to obtain the precise distances to support distance detection and fine-grained model optimization.**<br> 
 **(3) Extending the Faster-RCNN to achieve joint detection of pedestrian and its distance in one step.**<br>
+
  ![img.png](Table1.png)<br> 
  ![img.png](FigureS1.png)<br> 
 
