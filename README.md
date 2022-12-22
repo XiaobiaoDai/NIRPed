@@ -24,7 +24,7 @@ II. [Papers](#参考网址)<br>
 --- 
 I. Introduction<br> 
 ---
- ![img.png](./Fig&Tab/Table1.png)<br> 
+ ![img.png](Table1.png)<br> 
  ![img.png](./Fig&Tab/FigureS1.png)<br> 
 
 **This work‘s contributions are threefold:**<br> 
