@@ -1,4 +1,4 @@
-NIRPed: A Novel Benchmark for Nighttime Pedestrian and Its Distance Joint Detection<br>(Implementation based on Tensorflow & Keras)
+NIRPed: A Novel Benchmark for Nighttime Pedestrian and Its Distance Joint Detection (Implementation based on Tensorflow & Keras)
 ---
 ---
 # Content
