@@ -86,82 +86,101 @@ I. Environment
 pythonn == 3.9 <br>
 tensorflow-gpu == 2.9.0 <br>
 keras == 2.9.0 <br>
-Please refer to requirements.txt for more configuration.  <br>
+Please refer to requirements.txt for more configuration. <br>
 
 II. Download
 ---
-训练所需的NIRPed_weights_resnet50.h或者NightOwls_weights_resnet50.h以及主干的网络权重可以在百度云下载。  
-NIRPed_weights_resnet50.h是resnet50为主干特征提取网络用到的;  
-NightOwls_weights_resnet50.h是resnet50为主干特征提取网络用到的;  
-中南大学云盘链接: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED
-
-NIRPed数据集下载地址如下，里面已经包括了训练集、验证集、测试集，无需再次划分：  
-链接:https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED      
+1. Weights <br>
+The required network weights (NIRPed_weights_resnet50.h) can be downloaded from the cloud disk of Central South University (CSU). <br>
+Link: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED <br>
+2. Data <br>
+There are training, validation and testing subset in NIRPed which doesn't need to be divided again. <br>
+Link: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED <br>
 
 III. How2train
 ---
 A、Training on NIRPed
 ---
-1. 数据集的准备
-   **训练前需要下载好NIRPed的数据集，解压后png图像放在./data/NIRPed/images/train; coco格式的json注释路径为./data/NIRPed/labels/train.json。**
-2. 数据集的处理 
-   **在完成数据集的摆放之后，训练主程序train_JointDetector.py需要调用get_data_from_json.py获取训练用的json数据(./data/NIRPed/labels/train.json)。**
-   **修改config.py里面的参数self.train_img_dir，指向训练图像存放路径(./data/NIRPed/images/train)。**
-   **修改config.py里面的参数self.train_anno，指向训练训练注释存放路径(./data/NIRPed/labels/train.json)。**
-3. 开始网络训练
-   config.py的默认参数用于训练NIRPed数据集，直接运行train_JointDetector.py即可开始训练；
-   完成修改后就可以运行Test_JointDetector.py进行检测了。   
+1. Data preparation <br>
+   **Before training, downloaded NIRPed training subset，and unzip images to the folder of "./data/NIRPed/images/train";** <br> 
+   **download COCO-format annotation train.json to the folder of "./data/NIRPed/labels".** <br>
+2. Configuration <br>
+   **Open "./keras_frcnn/config.py", modify self.train_img_dir to the training image path (./data/NIRPed/images/train);** <br>
+   **Open "./keras_frcnn/config.py", modify self.train_anno to the training annotation path (./data/NIRPed/labels/train.json).** <br>
+3. Begin training
+   Run "train_JointDetector.py" to start training.
 
 B、Training on your own dataset
 ---
-1. 数据集的准备 
-   **本文使用COCO格式进行训练，训练前需要自己制作好COCO格式数据集，** 
-   训练前将标签文件train.json放在./data/NIRPed/labels文件夹中；
-   训练前将图片文件*.png放在./data/NIRPed/images/train文件夹中；   
-   在config.py文件里面，修改val_img_dir(test_img_dir)、val_anno(test_anno)对应训练好的文件，以及class_mapping对应的分类。
-2. 数据集的处理
-   在完成数据集的摆放之后，train_JointDetector.py需要调用get_data_from_json.py获得训练用的train.json。
-   **修改config.py里面的参数self.train_anno，指向训练训练注释存放路径(./data/NIRPed/labels/train.json)。**
-3. 开始网络训练
-   **训练的参数较多，均在config.py中，大家可以在下载库后仔细看注释,做相应的修改。**
-   修改完后就可以运行train_JointDetector.py开始训练了，在训练一个iteration后，权值会生成在./model_data文件夹中。  
+1. Data preparation 
+   **Collect the image and target distance information in the image, and make a COCO-format annotation file. **  <br>
+   Before training, put the png image files into the folder of "./data/yourDataset/images/train"; <br>
+   put the annotation file train.json into the folder of "./data/yourDataset/labels". <br>   
+2. Configuration <br>
+   **Open "./keras_frcnn/config.py", modify self.train_img_dir to the training image path (./data/yourDataset/images/train);** <br>
+   **modify self.train_anno to the training annotation path (./data/yourDataset/labels/train.json);** <br>
+   **modify self.class_mapping according to your tasks;** <br>
+   modify other parameters according to your tasks. <br>   
+3. Begin training
+   Run "train_JointDetector.py" to start training. During the training stage, weights will be saved in the folder of "./model_data". <br>
 
 IV. How2predict
 ---
-A、Use our weights
+A、Using our weights
 ---
-1. 下载完库后解压，在中南云盘下载NIRPed_weights_resnet50.h，放入./model_data文件夹中。 
-2. 训练结果预测需要用到Test_JointDetector.py文件。首先需要去Test_JointDetector.py里面修改model_path和results_dir;
-   再修改config.py里面的参数self.val_img_dir或self.test_img_dir，指向预测图像存放路径。 
-   **model_path指向训练好的权值文件，在./model_data文件夹里;**
-   **results_dir为检测结果存放文件夹，在./results_NIRPed文件夹里;** 
-   **config.py里面的参数self.val_img_dir或self.test_img_dir，指向训练图像存放路径./data/NIRPed/images/val或./data/NIRPed/images/test**
-3. 完成修改后就可以运行Test_JointDetector.py进行检测了。
+1. Data preparation <br>
+   **Before prediction, downloaded NIRPed validation or test subset，and unzip images to the folder of "./data/NIRPed/images/val" or "./data/NIRPed/images/test";** <br> 
+   **download COCO-format annotation val.json or test.json to the folder of "./data/NIRPed/labels";** <br>
+   **download optimized weight file (NIRPed_weights_resnet50.h) to "./model_data" from CSU cloud disk.** <br>
+2. Configuration <br>
+   **Open "./keras_frcnn/config.py", modify self.val_img_dir or self.test_img_dir to the image path ("./data/NIRPed/images/val" or "./data/NIRPed/images/test");** <br>
+   **modify self.model_path to the model path (./model_data/NIRPed_weights_resnet50.h5).** <br>
+   **Open "Test_JointDetector.py", modify results_dir to the results-saving path ("./results_NIRPed").** <br>
+3. Begin prediction
+   Run "Test_JointDetector.py" to start prediction. During the prediction stage, results will be saved in the folder of "./results_NIRPed". <br>
 
-B、Use your own weights
+B、Using your own weights
 ---
-1. 按照训练步骤训练,优化自己的模型权重。
-2. 在config.py文件里面，修改model_path、val_img_dir(test_img_dir)、val_anno(test_anno)对应训练好的文件，以及class_mapping对应model_path的分类；
-   **model_path对应./model_data文件夹下面的权值文件;**  
-   **val_anno(test_anno)对应./data/dataset/labels文件夹下面的注释文件。**
-3. 在Test_JointDetector.py里面进行设置RPN最大提案数量max_boxes(默认为300)和预测结果保存的置信度阈值score_threshold_cls(默认为0.001)。
-   **score_threshold_cls取值较小，获得更多结果用于后续评估。**
-4. 运行Test_JointDetector.py进行检测。 
+1. Data preparation 
+   **After optimizing the weights on your own data, put the weights in the folder of "./model_data".**  <br>
+   Before prediction, put the png image files into the folder of "./data/yourDataset/images/val" or "./data/yourDataset/images/test"; <br>
+   put the COCO-format annotation file val.json or test.json into the folder of "./data/yourDataset/labels". <br>   
+2. Configuration <br>
+   **Open "./keras_frcnn/config.py", modify self.val_img_dir or self.test_img_dir to the image path ("./data/yourDataset/images/val" or "./data/yourDataset/images/test");** <br>
+   **modify self.val_anno or self.test_anno to the annotation paths ("./data/yourDataset/labels/val.json" or "./data/yourDataset/labels/test.json");** <br>
+   **modify self.class_mapping according to your tasks;** <br>
+   modify other parameters according to your tasks. <br>   
+   **Open "Test_JointDetector.py", modify results_dir to the results-saving path ("./results_yourDataset").** <br>
+3. Begin prediction
+   Run "Test_JointDetector.py" to start prediction. During the prediction stage, results will be saved in the folder of "./results_yourDataset". <br>
 
 V. How2eval
 ---
-A、Evaluation on NIRPed validation subset
+A、Evaluation on NIRPed validation or testing subset
 ---
-1. 本文使用COCO格式进行评估。NIRPed已经划分好了验证集和测试集及其注释；
-2. 在config.py里面修改model_path。**model_path指向训练好的权值文件，在./model_data文件夹里；**  
-3. 运行Evaluate_JointDetector.py即可获得评估结果，评估结果会保存在./results_NIRPed文件夹中。
+1. Data preparation 
+   **After prediction, put the results in the folder of "./results_NIRPed";**  <br>
+   Before evaluation, put the png image files into the folder of "./data/NIRPed/images/val" or "./data/NIRPed/images/test"; <br>
+   put the COCO-format annotation file val.json or test.json into the folder of "./data/NIRPed/labels". <br>  
+2. Configuration <br>
+   **Open "./keras_frcnn/config.py", modify self.val_img_dir or self.test_img_dir to the image path ("./data/NIRPed/images/val" or "./data/NIRPed/images/test").** <br>
+   **Open "Evaluate_JointDetector.py", modify Detection_results_dir to the results-saving path ("./results_NIRPed/dt_results_val_B300_001");** <br>
+   modify other parameters in the "Evaluate_JointDetector.py" according to your tasks. <br>   
+3. Begin evaluation
+   Run Evaluate_JointDetector.py to start evaluation. During the prediction stage, results will be saved in the folder of "./results_NIRPed/dt_results_val_B300_001". <br>  
 
-B、Evaluation on your own dataset
+B、Evaluation on your own dataset (yourDataset)
 ---
-1. 本文使用COCO格式进行评估；  
-2. 划分训练集、验证集和测试集，制作各子集COCO格式json文件；
-3. 在config.py里面修改model_path。**model_path指向训练好的权值文件，在./model_data文件夹里；**  
-4. 运行Evaluate_JointDetector.py即可获得评估结果，评估结果会保存在./results_dataset文件夹中。
+1. Data preparation 
+   **After prediction, put the results in the folder of "./results_yourDataset";**  <br>
+   Before evaluation, put the png image files into the folder of "./data/yourDataset/images/val" or "./data/yourDataset/images/test"; <br>
+   put the COCO-format annotation file val.json or test.json into the folder of "./data/yourDataset/labels". <br>  
+2. Configuration <br>
+   **Open "./keras_frcnn/config.py", modify self.val_img_dir or self.test_img_dir to the image path ("./data/yourDataset/images/val" or "./data/yourDataset/images/test").** <br>
+   **Open "Evaluate_JointDetector.py", modify Detection_results_dir to the results-saving path ("./results_yourDataset/dt_results_val_B300_001");** <br>
+   modify other parameters in the "Evaluate_JointDetector.py" according to your tasks. <br>   
+3. Begin evaluation
+   Run Evaluate_JointDetector.py to start evaluation. During the prediction stage, results will be saved in the folder of "./results_yourDataset/dt_results_val_B300_001". <br>  
 
 三. References
 ---
