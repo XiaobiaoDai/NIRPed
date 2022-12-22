@@ -24,11 +24,11 @@ II. [Papers](#参考网址)<br>
 --- 
 I. Introduction<br> 
 ---
- ![img.png](Table1.png)<br> 
+ ![img.png](./Fig&Tab/Table1.png)<br> 
  ![img.png](./Fig&Tab/FigureS1.png)<br> 
 
 **This work‘s contributions are threefold:**<br> 
-(1) A large-scale, competitive and robust narrowband near-infrared nighttime pedestrian dataset containing target distances was constructed as a powerful supplement to NightOwls.<br> 
+(1) A large-scale, competitive and robust narrowband near- infrared nighttime pedestrian dataset containing target distances was constructed as a powerful supplement to NightOwls.<br> 
 (2) Using LiDAR to obtain the precise distances to support distance detection and fine-grained model optimization.<br> 
 (3) Extending the Faster-RCNN to achieve joint detection of pedestrian and its distance in one step.<br>
 
@@ -36,7 +36,7 @@ II.  Narrowband NIR Nighttime Pedestrian and Its Distance Joint Detection Datase
 ---
 A. Data Collection Device<br> 
 ---
- ![img.png](Figure1.png)<br> 
+ ![img.png](./Fig&Tab/Figure1.png)<br> 
 
 B. Data Collection and Target Distance Obtaining<br> 
 ---
@@ -75,7 +75,7 @@ IV. Performance<br>
 
 V. Conclusion
 ---
-**In order to cope with the huge challenges of nighttime driving scenes, we selected a narrowband near-infrared imaging system to collect high-quality images and matched LiADR to precisely obtain the distance information in the imaging area. We further constructed a nighttime pedestrian and its distance joint detection dataset NIRPed, which contains 142k narrowband near-infrared images and 236k annotations of pedestrian and other person-related objects. Among them, the pedestrian annotation amounts to 146k, which is 3 times of NightOwls—the largest visible-light nighttime pedestrian dataset at present. For achieving pedestrian detection and distance detection tasks synchronously, we proposed a joint detection method based on Faster-RCNN and monocular images. Our method has been proven to be advantageous in dealing with complex nighttime driving scenes, which will hopefully contribute to the PPS to effectively realize nighttime pedestrian detection and distance detection at low cost.**
+**In order to cope with the huge challenges of nighttime driving scenes, we selected a narrowband near-infrared imaging system to collect high-quality images and matched LiADR to precisely obtain the distance information in the imaging area. We further constructed a nighttime pedestrian and its distance joint detection dataset NIRPed, which contains 142k narrowband near-infrared images and 236k annotations of pedestrian and other person- related objects. Among them, the pedestrian annotation amounts to 146k, which is 3 times of NightOwls—the largest visible-light nighttime pedestrian dataset at present. For achieving pedestrian detection and distance detection tasks synchronously, we proposed a joint detection method based on Faster-RCNN and monocular images. Our method has been proven to be advantageous in dealing with complex nighttime driving scenes, which will hopefully contribute to the PPS to effectively realize nighttime pedestrian detection and distance detection at low cost.**
 <br> 
 
 二. Implementation based on Tensorflow & Keras
