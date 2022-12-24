@@ -7,10 +7,10 @@ II. [JointDetector](#联合检测方法创新)<br>
 III. [Performance](#性能表现)<br>
 IV. [References](#参考资料)<br> 
 
-#I. NIRPed dataset
+# I. NIRPed dataset <br>
 There are training, validation and testing subset in NIRPed which doesn't need to be divided again. <br>
 For being compatible with the existing framework, NIRPed's annotations are provided in the MS-COCO format (JSON). <br>
-##A. Data of NIRPed <br>
+## A. Data of NIRPed <br>
 PNG/JSON (Python)
 Training images (60GB) /Training annotations (38MB)<br> 
 Validation images (38GB) /Validation annotations (25MB)<br> 
@@ -120,8 +120,8 @@ Link: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PE
    Before evaluation, put the png image files into the folder of "./data/yourDataset/images/val" or "./data/yourDataset/images/test"; <br>
    put the COCO-format annotation file val.json or test.json into the folder of "./data/yourDataset/labels". <br>  
 **Configuration** <br>
-   **Open "./keras_frcnn/config.py", modify self.val_img_dir or self.test_img_dir to the image path ("./data/yourDataset/images/val" or "./data/yourDataset/images/test"). <br>
-   **Open "Evaluate_JointDetector.py", modify Detection_results_dir to the results-saving path ("./results_yourDataset/dt_results_val_B300_001"); <br>
+   Open "./keras_frcnn/config.py", modify self.val_img_dir or self.test_img_dir to the image path ("./data/yourDataset/images/val" or "./data/yourDataset/images/test"). <br>
+   Open "Evaluate_JointDetector.py", modify Detection_results_dir to the results-saving path ("./results_yourDataset/dt_results_val_B300_001"); <br>
    modify other parameters in the "Evaluate_JointDetector.py" according to your tasks. <br>   
 **Begin evaluation** <br>
    Run Evaluate_JointDetector.py to start evaluation. During the prediction stage, results will be saved in the folder of "./results_yourDataset/dt_results_val_B300_001". <br>  
