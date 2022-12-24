@@ -14,7 +14,7 @@ PNG/JSON (Python)
 Training images (60GB) /Training annotations (38MB)<br> 
 Validation images (38GB) /Validation annotations (25MB)<br> 
 Testing images (39GB) /Testing image information except annotations  (9MB)<br> 
-Please use Google Chrome or Microsoft Edge to download the NIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED
+Please use Google Chrome or Microsoft Edge to download the NIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED%2FNIRPed
   
 
 ## B. Data of miniNIRPed <br>
