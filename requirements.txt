@@ -1,28 +1,3 @@
-# pip install -r requirements.txt
-
-# base ----------------------------------------
-python==3.9.0
-tensorflow-gpu==2.9.0	
-keras>=2.9.0
-matplotlib>=3.5.2
-numpy>=1.23.1
-opencv-python>=4.6.0.66
-Pillow==9.2.0
-scipy>=1.8.1
-
-# logging -------------------------------------
-tensorboard>=2.9.1
-
-# plotting ------------------------------------
-pandas>=1.4.3
-
-
-# extras --------------------------------------
-gast>=0.4.0
-h5py>=3.7.0
-pydot>=1.4.2
-pycocotools>=2.0  # COCO mAP
-# pycocotools-windows>=2.0  # COCO mAP
-
-
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:edee51e5b9971e999a6ffb8caa6f5c6e4580c4075ff8ebba8f5adbc511ce0901
+size 505
