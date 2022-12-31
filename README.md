@@ -1,6 +1,6 @@
 NIRPed-JointDetector (Implementation based on Tensorflow & Keras)
 ---
-#Content
+# Content
 I. [NIRPed dataset](#数据创新)<br> 
 
 II. [JointDetector](#联合检测方法创新)<br>
@@ -9,7 +9,7 @@ III. [Performance](#性能表现)<br>
 
 IV. [References](#参考资料)<br> 
 
-#I. NIRPed dataset <br>
+# I. NIRPed dataset <br>
 There are training, validation and testing subset in NIRPed which doesn't need to be divided again. <br>
 For being compatible with the existing framework, NIRPed's annotations are provided in the MS-COCO format (JSON). <br>
 ## A. Data of NIRPed <br>
@@ -17,15 +17,15 @@ PNG/JSON (Python)
 Training images (60GB) /Training annotations (38MB)<br> 
 Validation images (38GB) /Validation annotations (25MB)<br> 
 Testing images (39GB) /Testing image information except annotations  (9MB)<br> 
-###**Please use Google Chrome or Microsoft Edge to download the NIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED%2FNIRPed**
+### **Please use Google Chrome or Microsoft Edge to download the NIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED%2FNIRPed**
   
 ## B. Data of miniNIRPed <br>
 PNG/JSON (Python)
 Training images (284MB)  /Training annotations (290KB) <br> 
 Validation images (172MB)  /Validation annotations (183KB) <br> 
 Testing images (177MB)   /Testing image information except annotations  (40KB) <br> 
-###Please download the miniNIRPed dataset via: https://github.com/XiaobiaoDai/NIRPed/tree/JointDetector/data/miniNIRPed <br> 
-###You can also use Google Chrome or Microsoft Edge to download the miniNIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED%2FminiNIRPed
+### Please download the miniNIRPed dataset via: https://github.com/XiaobiaoDai/NIRPed/tree/JointDetector/data/miniNIRPed <br> 
+### You can also use Google Chrome or Microsoft Edge to download the miniNIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED%2FminiNIRPed
    
 ## C. License <br>
 This dataset is made freely available to academic and non-academic entities for non-commercial purposes such as academic research, teaching, scientific publications, or personal experimentation. Permission is granted to use the data given that you agree:
@@ -46,10 +46,10 @@ NIRPed-JointDetector has been implemented based on Tensorflow & Keras in Python 
 ## B. Download <br>
 ### 1. Weights <br>
 The required network weights (NIRPed_weights_resnet50.h) can be downloaded from our repository in GitHub. <br>
-###Link: https://github.com/XiaobiaoDai/NIRPed/blob/master/model_data/NIRPed_weights_resnet50.h5 <br>
+### Link: https://github.com/XiaobiaoDai/NIRPed/blob/master/model_data/NIRPed_weights_resnet50.h5 <br>
 ### 2. Data <br>
 There are training, validation and testing subset in NIRPed which doesn't need to be divided again. <br>
-###Link: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED <br>
+### Link: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED <br>
 
 ## C. How2train <br>
 ### 1. Training on NIRPed <br>
