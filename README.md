@@ -1,4 +1,4 @@
-NIRPed-JointDetector (Implementation based on Tensorflow & Keras)
+NIRPed-JointDetection (Implementation based on Tensorflow & Keras)
 ---
 # Content
 I. [NIRPed dataset](#数据创新)<br> 
