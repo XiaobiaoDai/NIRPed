@@ -12,6 +12,11 @@ IV. [References](#参考资料)<br>
 # I. NIRPed dataset <br>
 There are training, validation and testing subset in NIRPed which doesn't need to be divided again. <br>
 For being compatible with the existing framework, NIRPed's annotations are provided in the MS-COCO format (JSON). <br>
+To make its more accessible to those interested, we have created a mini version of NIRPed called miniNIRPed. <br>
+We uploaded the miniNIRPed dataset in this repository.  <br>
+Due to capacity limitations, it is difficult for us to upload 150GB of data to these formal and long-term websites like GitHub.   <br>
+Therefore, we give the link to the full version of NIRPed on the Cloud Disk of Central South University (CSU), which is open to the world.   <br>
+
 ## A. Data of NIRPed <br>
 PNG/JSON (Python)
 Training images (60GB) /Training annotations (38MB)<br> 
