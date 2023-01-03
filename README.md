@@ -19,16 +19,16 @@ Therefore, we give the link to the full version of NIRPed on the Cloud Disk of C
 
 ## A. Data of NIRPed <br>
 PNG/PICKLE/JSON (Python)
-Training images (60GB) /pickle files (3.0GB) /Training annotations (38MB)<br> 
-Validation images (38GB) /pickle files (1.5GB) /Validation annotations (25MB)<br> 
-Testing images (39GB) /pickle files (2.1GB) /Testing image information except annotations  (9MB)<br> 
+Training images (60GB) /pickle files (1.6GB) /Training annotations (38MB)<br> 
+Validation images (38GB) /pickle files (1GB) /Validation annotations (25MB)<br> 
+Testing images (39GB) /pickle files (1GB) /Testing image information except annotations  (9MB)<br> 
 ### **Please use Google Chrome or Microsoft Edge to download the NIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED%2FNIRPed**
   
 ## B. Data of miniNIRPed <br>
 PNG/PICKLE/JSON (Python)
-Training images (284MB) /pickle files (15MB)  /Training annotations (290KB) <br> 
-Validation images (172MB) /pickle files (10MB)  /Validation annotations (183KB) <br> 
-Testing images (177MB) /pickle files (10MB)   /Testing image information except annotations  (40KB) <br> 
+Training images (284MB) /pickle files (8MB)  /Training annotations (290KB) <br> 
+Validation images (172MB) /pickle files (5MB)  /Validation annotations (183KB) <br> 
+Testing images (177MB) /pickle files (5MB)   /Testing image information except annotations  (40KB) <br> 
 ### Please download the miniNIRPed dataset via: https://github.com/XiaobiaoDai/NIRPed/tree/JointDetector/data/miniNIRPed <br> 
 ### You can also use Google Chrome or Microsoft Edge to download the miniNIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED%2FminiNIRPed
    
