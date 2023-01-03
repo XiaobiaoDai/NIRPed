@@ -18,14 +18,14 @@ Due to capacity limitations, it is difficult for us to upload 150GB of data to t
 Therefore, we give the link to the full version of NIRPed on the Cloud Disk of Central South University (CSU), which is open to the world.   <br>
 
 ## A. Data of NIRPed <br>
-PNG/PICKLE/JSON (Python)
+PNG/PICKLE/JSON (Python): <br>
 Training images (60GB) /pickle files (1.6GB) /Training annotations (38MB)<br> 
 Validation images (38GB) /pickle files (1GB) /Validation annotations (25MB)<br> 
 Testing images (39GB) /pickle files (1GB) /Testing image information except annotations  (9MB)<br> 
 ### **Please use Google Chrome or Microsoft Edge to download the NIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED%2FNIRPed**
   
 ## B. Data of miniNIRPed <br>
-PNG/PICKLE/JSON (Python)
+PNG/PICKLE/JSON (Python): <br>
 Training images (284MB) /pickle files (8MB)  /Training annotations (290KB) <br> 
 Validation images (172MB) /pickle files (5MB)  /Validation annotations (183KB) <br> 
 Testing images (177MB) /pickle files (5MB)   /Testing image information except annotations  (40KB) <br> 
