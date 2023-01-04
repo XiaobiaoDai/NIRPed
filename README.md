@@ -1,13 +1,5 @@
 NIRPed-JointDetection (Implementation based on Tensorflow & Keras)
 ---
-# Content
-I. [NIRPed dataset](#数据创新)<br> 
-
-II. [JointDetector](#联合检测方法创新)<br>
-
-III. [Performance](#性能表现)<br>
-
-IV. [References](#参考资料)<br> 
 
 # I. NIRPed dataset <br>
 There are training, validation and testing subset in NIRPed which doesn't need to be divided again. <br>
