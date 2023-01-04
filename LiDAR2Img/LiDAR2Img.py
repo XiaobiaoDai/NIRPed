@@ -1,27 +1,30 @@
 import re
 import time, pdb, cv2, h5py, os, glob, shutil
 import numpy as np
-from LiDAR2Img.get_LiDAR_Image_data import CalibratData_Lidar
+from LiDAR2Img.get_LiDAR_Image_data import CalibratData_Lidar0, CalibratData_Lidar
 from LiDAR2Img.util import project_pointcloud_on_image
 
 np.set_printoptions(precision=6, threshold=np.inf, edgeitems=10, linewidth=260, suppress=True)
-data_dir = r'E:\Datasets\NIRPed2021\miniNIRPed\images&pickles\train'
+# data_dir = '../data/miniNIRPed/images&pickles/train'
+# data_dir = '../data/miniNIRPed/images&pickles/val'
+data_dir = '../data/miniNIRPed/images&pickles/test'
 Suffix_Merge = 'm'
-Delta_time = 0.2
+Delta_time = 0.5
 
 ParamsF12 =\
-    {'20180702':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 6.0},
-     '20180710':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 6.0},
+    {'20180702':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 10.8},
+     '20180710':{"pitch": -4.0, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 10.6},
      '20190325':{"pitch": -0.1, "roll": 0.1, "translation_x": 0.2, "translation_y": 70, "translation_z": -2, "yaw": -0.3},
      '20190326':{"pitch": -0.6, "roll": 0.1, "translation_x": 0.2, "translation_y": 70, "translation_z": -2, "yaw": -0.1},
      '20190503':{"pitch": -1.3, "roll": 0.1, "translation_x": 0.2, "translation_y": 74, "translation_z": -12, "yaw": -0.2},
      '20190508':{"pitch": 3.4, "roll": 0.1, "translation_x": 0.2, "translation_y": 74, "translation_z": -12, "yaw": -3.6},
-     '201905081830':{"pitch": 1.0, "roll": 0.1, "translation_x": 0.2, "translation_y": 74, "translation_z": -12, "yaw": -3.6},
-     '2019050818301':{"pitch": 3.0, "roll": 0.1, "translation_x": -1.2, "translation_y": 74, "translation_z": 4, "yaw": -1.1},
+     '2019050820':{"pitch": 1.0, "roll": 0.1, "translation_x": 0.2, "translation_y": 74, "translation_z": -12, "yaw": -3.6}, #201905081830
+     '20190508204':{"pitch": 3.0, "roll": 0.1, "translation_x": -1.2, "translation_y": 74, "translation_z": 4, "yaw": -1.1}, #2019050818301
      '20200401':{"pitch": 2.0, "roll": 0.1, "translation_x": -0.2, "translation_y": 72, "translation_z": 4, "yaw": 1.7},
      '20200402':{"pitch": 3.0, "roll": 0.1, "translation_x": -0.2, "translation_y": 72, "translation_z": 4, "yaw": 1.1},
      '20200406':{"pitch": -2.9, "roll": 0.1, "translation_x": -0.2, "translation_y": 72, "translation_z": 4, "yaw": 0.2},
      '20200425':{"pitch": -3.5, "roll": 0.1, "translation_x": 0.1, "translation_y": 170, "translation_z": 4, "yaw": -0.3},
+     '20200521':{"pitch": -3.8, "roll": 0.1, "translation_x": -100, "translation_y": -10, "translation_z": 40, "yaw": 3.2},
      '20200522':{"pitch": -3.8, "roll": 0.1, "translation_x": -100, "translation_y": -10, "translation_z": 40, "yaw": 3.2},
      '20200524':{"pitch": -4.3, "roll": 0.1, "translation_x": -100, "translation_y": -10, "translation_z": 40, "yaw": 1.1},
      '20200525':{"pitch": -4.2, "roll": 0.1, "translation_x": -60, "translation_y": 100, "translation_z": 4, "yaw": 0.5},
@@ -31,9 +34,9 @@ ParamsF12 =\
      '20200531':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 0.4},
      '20200607':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 0.4},
      # '20200624':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 0.4},
-     '20200624':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 5.4},
+     '20200624':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 10.4},
      # '20200630':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 0.4},
-     '20200630':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 4.4},
+     '20200630':{"pitch": -4.3, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 10.4},
      '20210107':{"pitch": -3.1, "roll": 0.1, "translation_x": 0.2, "translation_y": 75, "translation_z": 4, "yaw": 1.7},
      '20210120':{"pitch": -0.4, "roll": 0.1, "translation_x": 0.2, "translation_y": 75, "translation_z": 4, "yaw": -0.5},
      '20210310':{"pitch": -0.4, "roll": 0.1, "translation_x": 0.2, "translation_y": 75, "translation_z": 4, "yaw": -0.5},
@@ -52,21 +55,21 @@ for index, Img_path in enumerate(Img_files_list):
     Image_name = os.path.basename(Img_path)
     Divided_Symbols = Image_name[4:4+8]  #时间分割符号Divided_Symbols = '20190430'; Data20180702193607_624927N850F12.png
 
-    if Divided_Symbols in ['20181219', '20181220', '20190113', '20210120', '20210310', '20210315']:
+    # list_OK = ['20180702', '20180710', '20190325', '20190326', '20190503', '20190508', '20200521', '20200525', '20200528', '20200529', '20200607', '20200624', '20200630', '20210120', '20210310', '20210315']
+    # if Divided_Symbols in [ '20181219', '20181220', '20190113'] + list_OK:
+    if Divided_Symbols in ['20181219', '20181220', '20190113']:
         continue
 
     Img_id = Image_name.split(".", 1)[0]
     Img_formate = Image_name.split(".", 1)[1]
     img_min = Img_id.split('_', 1)[0][:11+4]
     initial_paramsF12 = ParamsF12[Divided_Symbols]
-    print('initial_paramsF12=')
-    print(initial_paramsF12)
 
     MergeData_path = os.path.join(data_dir, Img_id + "{}.".format(Suffix_Merge) + Img_formate)
     if os.path.exists(MergeData_path):
         continue
 
-    print('Processing: %d/%d:' % (index, num_images))
+    print('Processing for %s: %d/%d:' % (Divided_Symbols, index, num_images))
 
     Img_time = Img_id.split(Divided_Symbols, 1)[1]
     Img_name_head = Img_id.split(Divided_Symbols, 1)[0]
@@ -116,13 +119,19 @@ for index, Img_path in enumerate(Img_files_list):
     if Lidar_best_match_file not in Lidar_best_match_files:
         Lidar_best_match_files.append(Lidar_best_match_file)
 
-    pointcloud = CalibratData_Lidar(Lidar_best_match_file)
+    # pdb.set_trace()
+    if Divided_Symbols in ['20190325', '20190326', '20190503', '20190508']:
+        pointcloud = CalibratData_Lidar0(Lidar_best_match_file)
+    else:
+        pointcloud = CalibratData_Lidar(Lidar_best_match_file)
+
     img_RGB = cv2.imread(Img_path)
     image_gray_undist = cv2.cvtColor(img_RGB, cv2.COLOR_BGR2GRAY)  # image_gray_undist.shape=(711, 1269)
 
     #print('Projecting process:{}/{}'.format(num_calibrate_imgs, num_data_pairs))
     translation_best = [initial_paramsF12['translation_x'], initial_paramsF12['translation_y'], initial_paramsF12['translation_z']]
     rotation_best = [initial_paramsF12['pitch'], initial_paramsF12['yaw'], initial_paramsF12['roll']]
+
     projected_point_cloud, intensities, distances = project_pointcloud_on_image(pointcloud[:, :3], pointcloud[:, 3:], translation_best, rotation_best, image_gray_undist)
     '''雷达投影到成像平面上的有反射的像素点坐标：projected_point_cloud.shape=(3, 1186),以及像素点对应的反射强度值：intensities.shape=(1186,) distances.shape=(1186,)
     distances=array([31.4 , 31.43, 31.51, 17.87, 27.21, 31.33, 52.08, 17.86, 27.35, 17.85, ..., 23.1 , 27.77, 24.52, 25.49,  8.69, 21.86,  9.88, 28.42,  8.64,9.93])'''

@@ -2,10 +2,10 @@ NIRPed-JointDetection (Implementation based on Tensorflow & Keras)
 ---
 
 # I. NIRPed dataset <br>
-There are training, validation and testing subset in NIRPed which doesn't need to be divided again. <br>
+There is a training, validation and testing subset in NIRPed that doesn't need to be divided again. <br>
 For being compatible with the existing framework, NIRPed's annotations are provided in the MS-COCO format (JSON). <br>
-To make its more accessible to those interested, we have created a mini version of NIRPed called miniNIRPed. <br>
-We uploaded the miniNIRPed dataset in this repository.  <br>
+To make it more accessible to those interested, we have created a mini version of NIRPed called miniNIRPed. <br>
+We uploaded the miniNIRPed dataset to this repository.  <br>
 Due to capacity limitations, it is difficult for us to upload 150GB of data to the repository of GitHub.   <br>
 Therefore, we give the link to the complete version of the NIRPed dataset on the Cloud Disk of Central South University (CSU), which is open to the world.   <br>
 
@@ -13,7 +13,8 @@ Therefore, we give the link to the complete version of the NIRPed dataset on the
 PNG/PICKLE/JSON (Python): <br>
 Training images (60GB) /pickle files (1.6GB) /Training annotations (38MB)<br> 
 Validation images (38GB) /pickle files (1GB) /Validation annotations (25MB)<br> 
-Testing images (39GB) /pickle files (1GB) /Testing image information except annotations  (9MB)<br> 
+Testing images (39GB) /pickle files (1GB) /Testing image information except for annotations  (9MB)<br> 
+You can project LiDAR point clouds saved in a PICKLE file to its matched image by running 'LiDAR2Img.py'.
 ### **Please use Google Chrome or Microsoft Edge to download the NIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED%2FNIRPed**
   
 ## B. Data of miniNIRPed <br>
@@ -28,7 +29,7 @@ Testing images (177MB) /pickle files (5MB)   /Testing image information except a
 This dataset is made freely available to academic and non-academic entities for non-commercial purposes such as academic research, teaching, scientific publications, or personal experimentation. Permission is granted to use the data given that you agree:
 That the dataset comes “AS IS”, without express or implied warranty. Although every effort has been made to ensure accuracy, we do not accept any responsibility for errors or omissions.
 That you include a reference to the NIRPed Dataset in any work that makes use of the dataset.
-That you do not distribute this dataset or modified versions. It is permissible to distribute derivative works in as far as they are abstract representations of this dataset (such as models trained on it or additional annotations that do not directly include any of our data) and do not allow to recover the dataset or something similar in character.
+That you do not distribute this dataset or modified versions. It is permissible to distribute derivative works as far as they are abstract representations of this dataset (such as models trained on it or additional annotations that do not directly include any of our data) and do not allow to recover the dataset or something similar in character.
 You may not use the dataset or any derivative work for commercial purposes such as, for example, licensing or selling the data, or using the data with a purpose to procure a commercial gain.
 That all rights not expressly granted to you are reserved by us.
 
