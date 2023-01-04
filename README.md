@@ -133,6 +133,18 @@ There are training, validation and testing subset in NIRPed which doesn't need t
 | KAIST | [KAIST_weights_resnet50.h](https://github.com/XiaobiaoDai/NIRPed/blob/master/model_data/KAIST_weights_resnet50.h5) | KAIST-test | 640*256 | 37.3 | 69.8 | -
 <br> 
 
-# IV. References <br>
+# IV. Acknowledgement
+This work builds on many excellent works, which include: <br>
 1. https://github.com/jinfagang/keras_frcnn <br>
 2. https://github.com/chenyuntc/simple-faster-rcnn-pytorch <br>
+………………………………………………………………………………………………………………………………………………………………………………<br>
+………………………………………………………………………………………………………………………………………………………………………………<br>
+
+^_^
+
+Contribution Welcome.
+
+If you encounter any problem, feel free to open an issue.
+
+Correct me if anything is wrong or unclear.
+
