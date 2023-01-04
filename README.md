@@ -137,10 +137,8 @@ There are training, validation and testing subset in NIRPed which doesn't need t
 This work builds on many excellent works, which include: <br>
 1. https://github.com/jinfagang/keras_frcnn <br>
 2. https://github.com/chenyuntc/simple-faster-rcnn-pytorch <br>
-………………………………………………………………………………………………………………………………………………………………………………<br>
-………………………………………………………………………………………………………………………………………………………………………………<br>
 
-^_^
+# ^_^
 
 Contribution Welcome.
 
