@@ -14,7 +14,7 @@ PNG/PICKLE/JSON (Python): <br>
 Training images (60GB) /pickle files (1.6GB) /Training annotations (38MB)<br> 
 Validation images (38GB) /pickle files (1GB) /Validation annotations (25MB)<br> 
 Testing images (39GB) /pickle files (1GB) /Testing image information except for annotations  (9MB)<br> 
-You can project LiDAR point clouds saved in a PICKLE file to its matched image by running 'LiDAR2Img.py'.
+You can project LiDAR point clouds saved in a PICKLE file to its matched image by running 'LiDAR2Img.py'.<br> 
 ### **Please use Google Chrome or Microsoft Edge to download the NIRPed dataset via: https://pan.csu.edu.cn/#/link/3F35F56A95E21A7D2BDE30B3A431936B?path=NIR_PED%2FNIRPed**
   
 ## B. Data of miniNIRPed <br>

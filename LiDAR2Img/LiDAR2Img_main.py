@@ -8,6 +8,13 @@ np.set_printoptions(precision=6, threshold=np.inf, edgeitems=10, linewidth=260, 
 # data_dir = '../data/miniNIRPed/images&pickles/train'
 # data_dir = '../data/miniNIRPed/images&pickles/val'
 data_dir = '../data/miniNIRPed/images&pickles/test'
+
+# data_dir = 'E:/Datasets/NIRPed2021/NIRPed/images&pickles/train'
+# data_dir = 'E:/Datasets/NIRPed2021/NIRPed/images&pickles/val'
+# data_dir = 'E:/Datasets/NIRPed2021/NIRPed/images&pickles/test'
+
+img_set = os.path.basename(data_dir)
+
 Suffix_Merge = 'm'
 Delta_time = 0.5
 
@@ -16,7 +23,7 @@ ParamsF12 =\
      '20180710':{"pitch": -4.0, "roll": 0.1, "translation_x": -70, "translation_y": 112, "translation_z": 4, "yaw": 10.6},
      '20190325':{"pitch": -0.1, "roll": 0.1, "translation_x": 0.2, "translation_y": 70, "translation_z": -2, "yaw": -0.3},
      '20190326':{"pitch": -0.6, "roll": 0.1, "translation_x": 0.2, "translation_y": 70, "translation_z": -2, "yaw": -0.1},
-     '20190503':{"pitch": -1.3, "roll": 0.1, "translation_x": 0.2, "translation_y": 74, "translation_z": -12, "yaw": -0.2},
+     '20190503':{"pitch": -2.3, "roll": 0.1, "translation_x": 0.2, "translation_y": 74, "translation_z": -12, "yaw": -0.2},
      '20190508':{"pitch": 3.4, "roll": 0.1, "translation_x": 0.2, "translation_y": 74, "translation_z": -12, "yaw": -3.6},
      '2019050820':{"pitch": 1.0, "roll": 0.1, "translation_x": 0.2, "translation_y": 74, "translation_z": -12, "yaw": -3.6}, #201905081830
      '20190508204':{"pitch": 3.0, "roll": 0.1, "translation_x": -1.2, "translation_y": 74, "translation_z": 4, "yaw": -1.1}, #2019050818301
@@ -55,9 +62,10 @@ for index, Img_path in enumerate(Img_files_list):
     Image_name = os.path.basename(Img_path)
     Divided_Symbols = Image_name[4:4+8]  #时间分割符号Divided_Symbols = '20190430'; Data20180702193607_624927N850F12.png
 
-    # list_OK = ['20180702', '20180710', '20190325', '20190326', '20190503', '20190508', '20200521', '20200525', '20200528', '20200529', '20200607', '20200624', '20200630', '20210120', '20210310', '20210315']
-    # if Divided_Symbols in [ '20181219', '20181220', '20190113'] + list_OK:
-    if Divided_Symbols in ['20181219', '20181220', '20190113']:
+    list_OK = ['20180702', '20180710', '20190325', '20190326', '20190508', '20200401', '20200406', '20200425',
+    '20200521', '20200525', '20200528', '20200529', '20200607', '20200624', '20200630', '20210120', '20210310', '20210315']
+    if Divided_Symbols in ['20181219', '20181220', '20190113'] + list_OK:
+    # if Divided_Symbols in ['20181219', '20181220', '20190113']:
         continue
 
     Img_id = Image_name.split(".", 1)[0]
@@ -66,6 +74,10 @@ for index, Img_path in enumerate(Img_files_list):
     initial_paramsF12 = ParamsF12[Divided_Symbols]
 
     MergeData_path = os.path.join(data_dir, Img_id + "{}.".format(Suffix_Merge) + Img_formate)
+    # MergeData_path = MergeData_path.replace(img_set, f'{img_set}_fusion')
+    if not os.path.exists(os.path.dirname(MergeData_path)):
+        os.makedirs(os.path.dirname(MergeData_path))
+
     if os.path.exists(MergeData_path):
         continue
 
@@ -210,8 +222,6 @@ for index, Img_path in enumerate(Img_files_list):
                     cv2.putText(img_RGB, str(di), (x - 5, yd), font, 0.5, colorB, 1, cv2.LINE_AA)
                     Doted.append([x - 5, yd, di, y])
                     break
-    #pdb.set_trace()
-    #TODO:复制原图像,并保存融合图像到另一个文件夹用于制作标记*复制原图像,并保存融合图像到另一个文件夹用于制作标记*
 
     if not os.path.exists(MergeData_path):
         cv2.imwrite(MergeData_path, img_RGB)
