@@ -1,18 +1,17 @@
 import re
 import time, pdb, cv2, h5py, os, glob, shutil
 import numpy as np
-from LiDAR2Img.get_LiDAR_Image_data import CalibratData_Lidar0, CalibratData_Lidar
+from LiDAR2Img.get_LiDAR_Image_data import CalibratData_Lidar
 from LiDAR2Img.util import project_pointcloud_on_image
 
 np.set_printoptions(precision=6, threshold=np.inf, edgeitems=10, linewidth=260, suppress=True)
-# data_dir = '../data/miniNIRPed/images&pickles/train'
+data_dir = '../data/miniNIRPed/images&pickles/train'
 # data_dir = '../data/miniNIRPed/images&pickles/val'
-data_dir = '../data/miniNIRPed/images&pickles/test'
+# data_dir = '../data/miniNIRPed/images&pickles/test'
 
 # data_dir = 'E:/Datasets/NIRPed2021/NIRPed/images&pickles/train'
 # data_dir = 'E:/Datasets/NIRPed2021/NIRPed/images&pickles/val'
 # data_dir = 'E:/Datasets/NIRPed2021/NIRPed/images&pickles/test'
-
 img_set = os.path.basename(data_dir)
 
 Suffix_Merge = 'm'
@@ -62,11 +61,11 @@ for index, Img_path in enumerate(Img_files_list):
     Image_name = os.path.basename(Img_path)
     Divided_Symbols = Image_name[4:4+8]  #时间分割符号Divided_Symbols = '20190430'; Data20180702193607_624927N850F12.png
 
-    list_OK = ['20180702', '20180710', '20190325', '20190326', '20190508', '20200401', '20200406', '20200425',
-    '20200521', '20200525', '20200528', '20200529', '20200607', '20200624', '20200630', '20210120', '20210310', '20210315']
-    if Divided_Symbols in ['20181219', '20181220', '20190113'] + list_OK:
-    # if Divided_Symbols in ['20181219', '20181220', '20190113']:
-        continue
+    # list_OK = ['20180702', '20180710', '20190326', '20190508', '20200401', '20200406', '20200425',
+    # '20200521', '20200525', '20200528', '20200529', '20200607', '20200624', '20200630', '20210120', '20210310', '20210315']
+    # if Divided_Symbols in ['20181219', '20181220', '20190113'] + list_OK:
+    # # if Divided_Symbols in ['20181219', '20181220', '20190113']:
+    #     continue
 
     Img_id = Image_name.split(".", 1)[0]
     Img_formate = Image_name.split(".", 1)[1]
@@ -131,11 +130,7 @@ for index, Img_path in enumerate(Img_files_list):
     if Lidar_best_match_file not in Lidar_best_match_files:
         Lidar_best_match_files.append(Lidar_best_match_file)
 
-    # pdb.set_trace()
-    if Divided_Symbols in ['20190325', '20190326', '20190503', '20190508']:
-        pointcloud = CalibratData_Lidar0(Lidar_best_match_file)
-    else:
-        pointcloud = CalibratData_Lidar(Lidar_best_match_file)
+    pointcloud = CalibratData_Lidar(Lidar_best_match_file)
 
     img_RGB = cv2.imread(Img_path)
     image_gray_undist = cv2.cvtColor(img_RGB, cv2.COLOR_BGR2GRAY)  # image_gray_undist.shape=(711, 1269)

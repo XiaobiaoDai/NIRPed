@@ -143,7 +143,7 @@ This work builds on many excellent works, which include: <br>
 
 Contribution Welcome.
 
-If you encounter any problem, feel free to open an issue.
+If you encounter any problem, feel free to open an issue, or contact me directly via email: 3622@hnsyu.edu.cn/289234100@qq.com
 
 Correct me if anything is wrong or unclear.
 
