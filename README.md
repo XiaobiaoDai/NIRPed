@@ -139,15 +139,7 @@ This work builds on many excellent works, which include: <br>
 1. https://github.com/jinfagang/keras_frcnn <br>
 2. https://github.com/chenyuntc/simple-faster-rcnn-pytorch <br>
 
-# ^_^
-
-Contribution Welcome.
-
-If you encounter any problem, feel free to open an issue, or contact me directly via email: 3622@hnsyu.edu.cn/289234100@qq.com
-
-Correct me if anything is wrong or unclear.
-
-# Cite our Dataset <br>
+# V. Cite our Dataset <br>
 If you find NIRPed Dataset useful in your research, please consider citing: <br>
 @ARTICLE{10077447,
   author={Dai, Xiaobiao and Hu, Junping and Luo, Chunlei and Zerfa, Houcine and Zhang, Hai and Duan, Yuxia},
@@ -157,4 +149,12 @@ If you find NIRPed Dataset useful in your research, please consider citing: <br>
   volume={},
   number={},
   pages={1-11},
-  doi={10.1109/TITS.2023.3257079}}
+  doi={10.1109/TITS.2023.3257079}} <br>
+
+# ^_^
+
+Contribution Welcome.
+
+If you encounter any problem, feel free to open an issue, or contact me directly via email: 3622@hnsyu.edu.cn/289234100@qq.com
+
+Correct me if anything is wrong or unclear.
