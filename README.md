@@ -147,3 +147,14 @@ If you encounter any problem, feel free to open an issue, or contact me directly
 
 Correct me if anything is wrong or unclear.
 
+# Cite our Dataset <br>
+If you find NIRPed Dataset useful in your research, please consider citing: <br>
+@ARTICLE{10077447,
+  author={Dai, Xiaobiao and Hu, Junping and Luo, Chunlei and Zerfa, Houcine and Zhang, Hai and Duan, Yuxia},
+  journal={IEEE Transactions on Intelligent Transportation Systems}, 
+  title={NIRPed: A Novel Benchmark for Nighttime Pedestrian and Its Distance Joint Detection}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-11},
+  doi={10.1109/TITS.2023.3257079}}
